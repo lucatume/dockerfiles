@@ -1,0 +1,6 @@
+path: www
+url: http://tribe.localhost
+user: admin
+debug: false
+color: true
+
