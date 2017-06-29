@@ -43,9 +43,3 @@ COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
 # clean up dependencies
 RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
     apt-get clean -y
-
-# set the uid of www-data to get access to the /var/www/html folder
-COPY scripts/setHtmlOwner.sh /usr/local/bin/setHtmlOwner
-RUN chmod +x /usr/local/bin/setHtmlOwner
-
-CMD  /usr/local/bin/setHtmlOwner && php-cgi --fpm 

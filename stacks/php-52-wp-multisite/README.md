@@ -6,6 +6,7 @@ A PHP 5.2 LNMP stack with XDebug and Opcache
 	```shell
 	sed -i.bak 's/{{domain}}/mydomain/' .env \
 	&& sed -i.bak 's/{{domain}}/mydomain/' wp-cli.local.yml \
+	&& sed -i.bak 's/{{domain}}/mydomain/' build/nginx/conf.d/default.conf \
 	&& rm *.bak
 	```
 ## XDebug
