@@ -4,8 +4,9 @@ A PHP 5.2 LNMP stack with XDebug and Opcache
 * copy the whole directory over to your project file.
 * replace the domain with the one you wish to use:
 	```shell
-	sed -i 's/[[domain]]/mydomain/' -e '.env' \
-	&& sed -i 's/[[domain]]/mydomain/' -e 'wp-cli.local.yml'
+	sed -i.bak 's/{{domain}}/mydomain/' .env \
+	&& sed -i.bak 's/{{domain}}/mydomain/' wp-cli.local.yml \
+	&& rm *.bak
 	```
 ## XDebug
 Xdebug is set to auto-start and call back the request machine on port `9001`.
