@@ -9,7 +9,7 @@ services:
         volumes:
           - /var/run/docker.sock:/tmp/docker.sock:ro
     mysql:
-        image: mariadb
+        image: mysql
         environment:
             - VIRTUAL_HOST=mysql.${DOMAIN}.localhost
             - MYSQL_ROOT_PASSWORD=root
@@ -20,19 +20,17 @@ services:
             - ./database:/var/lib/mysql
         ports:
             - "3306:3306"
-    memcached:
-        image: memcached:alpine
+        user: "1000"
     php:
-        image: lucatume/php-5.2:0.1.3
+        build: ./build/php
         links:
-            - memcached
-            - mysql
+            - mysql:mysql
         volumes:
             - ./www:/var/www/html
     nginx:
         build: ./build/nginx
         environment:
-            - VIRTUAL_HOST=${DOMAIN}.localhost
+            - VIRTUAL_HOST=${DOMAIN}.localhost,*.${DOMAIN}.localhost
         volumes:
             - ./www:/var/www/html
         links:

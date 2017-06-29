@@ -1,5 +1,5 @@
 path: www
-url: http://tribe.localhost
+url: http://[[domain]].localhost
 user: admin
 debug: false
 color: true
