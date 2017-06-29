@@ -18,7 +18,7 @@ As such the chore of downloading and installing an application in the `www` fold
 
 ## Nginx configuration files
 Depending on the application you are running you might need different Nginx configuration files.  
-The default ones are in the `build/nginx/conf.d` folder and the only configuration file will successfully manage a multi site WordPress installation.  
+The default ones are in the `build/nginx/conf.d` folder and the only configuration file will successfully manage a multi/single site WordPress installation.  
 Replace with your configuration files and remember Google is your friend.
 
 ## Usage

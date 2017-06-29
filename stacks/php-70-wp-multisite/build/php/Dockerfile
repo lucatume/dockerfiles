@@ -44,3 +44,6 @@ RUN buildDeps=" \
     " \
     && rm -r /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
+
+# set the PHP user, (www-data), to the UID 1000 to allow it to rwx on the folders
+RUN usermod -u 1000 www-data
