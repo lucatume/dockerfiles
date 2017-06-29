@@ -4,10 +4,6 @@ LABEL maintainer "luca@theaveragedev.com"
 
 VOLUME /var/www/html
 
-# change the ownership of the /var/www/html folder to www-data
-# to allow the application to write files 
-RUN chown -R www-data: /var/www/html
-
 # install dependencies we need
 RUN apt-get update && \
     apt-get install -y wget zip build-essential php5-dev --no-install-recommends
@@ -43,3 +39,6 @@ COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
 # clean up dependencies
 RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
     apt-get clean -y
+
+# set the PHP user, (www-data), to the UID 1000 to allow it to rwx on the folders
+RUN usermod -u 1000 www-data
