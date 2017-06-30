@@ -1,4 +1,4 @@
-A PHP 7.0 LNMP stack with XDebug and Opcache
+A PHP 7.1 LNMP stack with XDebug and Opcache
 
 ## Installation
 * copy the whole directory over to your project file.
