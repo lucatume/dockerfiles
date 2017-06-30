@@ -2,13 +2,8 @@ A PHP 7.1 LNMP stack with XDebug and Opcache
 
 ## Installation
 * copy the whole directory over to your project file.
-* replace the domain with the one you wish to use:
-	```shell
-	sed -i.bak 's/{{domain}}/mydomain/' .env \
-	&& sed -i.bak 's/{{domain}}/mydomain/' wp-cli.local.yml \
-	&& sed -i.bak 's/{{domain}}/mydomain/' build/nginx/conf.d/default.conf \
-	&& rm *.bak
-	```
+* launch the `setup` script to replace the `domain` placeholder in the relevant files and build the Docker images
+
 ## XDebug
 Xdebug is set to auto-start and call back the request machine on port `9001`.
 
