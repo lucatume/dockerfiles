@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:5.6-fpm
 
 # Install required PHP extensions
 RUN set -ex; \

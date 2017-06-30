@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 # Install required PHP extensions
 RUN set -ex; \
@@ -42,6 +42,7 @@ RUN { \
 RUN buildDeps=" \
             zlib1g-dev \
             libjpeg-dev \
+            libpng12-dev \
     " \
     && rm -r /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps

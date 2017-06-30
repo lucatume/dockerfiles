@@ -1,0 +1,6 @@
+path: www
+url: http://{{domain}}.localhost
+user: admin
+debug: false
+color: true
+
