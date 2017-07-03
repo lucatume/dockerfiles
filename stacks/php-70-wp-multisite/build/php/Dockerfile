@@ -17,27 +17,6 @@ RUN set -ex; \
 RUN pecl install xdebug-2.5.0 \
     && docker-php-ext-enable opcache xdebug
 
-# Configure opcache
-RUN { \
-        echo 'opcache.memory_consumption=128'; \
-        echo 'opcache.interned_strings_buffer=8'; \
-        echo 'opcache.max_accelerated_files=4000'; \
-        echo 'opcache.revalidate_freq=2'; \
-        echo 'opcache.fast_shutdown=1'; \
-        echo 'opcache.enable_cli=1'; \
-    } > /usr/local/etc/php/conf.d/opcache.ini
-
-# Configure Xdebug
-RUN { \
-        echo 'xdebug.remote_enable=1'; \
-        echo 'xdebug.remote_connect_back=1'; \
-        echo 'xdebug.remote_autostart=1'; \
-        echo 'xdebug.remote_port=9001'; \
-        echo 'xdebug.scream=1'; \
-        echo 'xdebug.cli_color=1'; \
-        echo 'xdebug.show_local_vars=1'; \
-    } > /usr/local/etc/php/conf.d/xdebug.ini
-
 # Memcached
 RUN buildDeps=" \
             zlib1g-dev \
@@ -48,3 +27,7 @@ RUN buildDeps=" \
 
 # set the PHP user, (www-data), to the UID 1000 to allow it to rwx on the folders
 RUN usermod -u 1000 www-data
+
+# Configure extensions
+COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug-conf.ini
+COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache-conf.ini
