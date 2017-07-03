@@ -21,20 +21,11 @@ RUN mkdir -p /usr/local/etc/php/modules && \
     cp xdebug-2.2.7/modules/xdebug.so /usr/local/etc/php/modules && \
     rm -rf $(pwd)/xdebug*
 
-# activate Xdebug on php
-COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
 # install Opcache
 RUN pecl install zendopcache-7.0.2
 
-# activate Opcache on php
-COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-
 # install Memcache extension
 RUN pecl install memcache
-
-# activate Memcache on php
-COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
 
 # clean up dependencies
 RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
@@ -42,3 +33,12 @@ RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
 
 # set the PHP user, (www-data), to the UID 1000 to allow it to rwx on the folders
 RUN usermod -u 1000 www-data
+
+# activate Xdebug on php
+COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+# activate Opcache on php
+COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+# activate Memcache on php
+COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
