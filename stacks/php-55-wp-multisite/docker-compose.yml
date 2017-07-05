@@ -11,7 +11,7 @@ services:
     mysql:
         image: mysql
         environment:
-            - VIRTUAL_HOST=mysql.localhost
+            - VIRTUAL_HOST=db.localhost
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=${DOMAIN}
             - MYSQL_USER=${DOMAIN}
@@ -24,7 +24,7 @@ services:
     php:
         build: ./build/php
         links:
-            - "mysql:mysql.localhost":mysql
+            - "mysql:db.localhost"
         volumes:
             - ./www:/var/www/html
     nginx:
