@@ -27,7 +27,7 @@ services:
         build: ./build/php
         links:
             - memcached
-            - mysql
+            - "mysql:mysql.localhost"
         volumes:
             - ./www:/var/www/html
     nginx:

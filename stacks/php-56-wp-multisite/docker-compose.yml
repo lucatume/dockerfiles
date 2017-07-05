@@ -24,7 +24,7 @@ services:
     php:
         build: ./build/php
         links:
-            - mysql:mysql
+            - "mysql:mysql.localhost":mysql
         volumes:
             - ./www:/var/www/html
     nginx:
