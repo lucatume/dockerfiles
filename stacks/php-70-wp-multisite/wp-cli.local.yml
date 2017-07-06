@@ -1,6 +1,1 @@
-path: www
-url: http://{{domain}}.localhost
-user: admin
-debug: false
-color: true
-
+/Users/luca/dockerfiles/common/wp-cli.local.yml
