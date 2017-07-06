@@ -2,66 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5662d0dc-39f7-48d6-bdde-fb90c3615f2b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/php52-xdebug-opcache/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/php52-xdebug-opcache/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/php52-xdebug-opcache/conf/opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/php52-xdebug-opcache/conf/xdebug.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/nginx/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/nginx/conf.d/default.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/memcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/setup.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/.env" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/build/nginx/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/build/nginx/conf.d/default.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/build/php/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/build/php/conf/xdebug.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/docker-compose.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/setup.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/wp-cli.local.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/.env" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/build/nginx/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/build/nginx/conf.d/default.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/conf/opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/conf/xdebug.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/docker-compose.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/wp-cli.local.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/.env" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/build/nginx/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/build/nginx/conf.d/default.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/build/php/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/build/php/conf/opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/build/php/conf/xdebug.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/docker-compose.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/setup.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-70-wp-multisite/wp-cli.local.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/.env" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/build/nginx/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/build/nginx/conf.d/default.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/conf/opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/conf/xdebug.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/docker-compose.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/setup.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stacks/php-71-wp-multisite/wp-cli.local.yml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/php52-xdebug-opcache/conf/memcache.ini" afterPath="$PROJECT_DIR$/images/php-52-xdebug/conf/memcache.ini" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/.env" afterPath="$PROJECT_DIR$/common/.env" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/README.md" afterPath="$PROJECT_DIR$/common/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/Dockerfile" afterPath="$PROJECT_DIR$/images/php-52-xdebug/Dockerfile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/xdebug.ini" afterPath="$PROJECT_DIR$/images/php-52-xdebug/conf/xdebug.ini" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/docker-compose.yml" afterPath="$PROJECT_DIR$/common/docker-compose.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-52-wp-multisite/wp-cli.local.yml" afterPath="$PROJECT_DIR$/common/wp-cli.local.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-55-wp-multisite/build/php/conf/opcache.ini" afterPath="$PROJECT_DIR$/common/build/php/conf/opcache.ini" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/Dockerfile" afterPath="$PROJECT_DIR$/images/php-56-xdebug/Dockerfile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/stacks/php-56-wp-multisite/setup.sh" afterPath="$PROJECT_DIR$/common/setup" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/nginx/Dockerfile" afterPath="$PROJECT_DIR$/images/nginx/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/nginx/conf.d/default.conf" afterPath="$PROJECT_DIR$/images/nginx/conf.d/default.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/docker-compose.yml" afterPath="$PROJECT_DIR$/common/docker-compose.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/up" afterPath="$PROJECT_DIR$/common/up" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,15 +16,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="156">
-                <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="setup" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/setup">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,6 +50,9 @@
         <option value="$PROJECT_DIR$/images/php-71-xdebug/Dockerfile" />
         <option value="$PROJECT_DIR$/images/nginx/Dockerfile" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/common/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/stacks/php-71-wp-multisite/up" />
+        <option value="$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/opcache.ini" />
       </list>
     </option>
   </component>
@@ -170,6 +113,10 @@
               <option name="myItemId" value="stacks" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-71-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -181,7 +128,169 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-71-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-71-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-56-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-56-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-56-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-56-wp-multisite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dockerfiles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stacks" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-52-wp-multisite" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,17 +415,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499359868369</updated>
-      <workItem from="1499359869663" duration="3398000" />
+      <workItem from="1499359869663" duration="3890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3398000" />
+    <option name="totallyTimeSpent" value="3890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="150" y="23" width="1400" height="987" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -346,76 +456,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/nginx/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1499361490000" expanded="true" signature="9:12" ph="2" />
-            <marker date="1499361490000" expanded="true" signature="14:1052" ph="services: &lt;5 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="28:216" ph="nginx-proxy: &lt;4 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="56:75" ph="jwilder/nginx-proxy" />
-            <marker date="1499361490000" expanded="true" signature="100:111" ph="nginx-proxy" />
-            <marker date="1499361490000" expanded="true" signature="120:146" ph="ports: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="139:146" ph="80:80" />
-            <marker date="1499361490000" expanded="true" signature="155:216" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="176:216" ph="/var/run/…er.sock:ro" />
-            <marker date="1499361490000" expanded="true" signature="221:581" ph="mysql: &lt;5 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="243:248" ph="mysql" />
-            <marker date="1499361490000" expanded="true" signature="258:462" ph="environment: &lt;5 items&gt;" />
-            <marker date="1499361490000" expanded="true" signature="285:310" ph="VIRTUAL_H….localhost" />
-            <marker date="1499361490000" expanded="true" signature="325:349" ph="MYSQL_ROO…SWORD=root" />
-            <marker date="1499361490000" expanded="true" signature="364:388" ph="MYSQL_DAT…=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="403:423" ph="MYSQL_USER=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="438:462" ph="MYSQL_PAS…=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="471:519" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="494:519" ph="./databas…/lib/mysql" />
-            <marker date="1499361490000" expanded="true" signature="528:560" ph="ports: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="549:560" ph="3306:3306" />
-            <marker date="1499361490000" expanded="true" signature="575:581" ph="1000" />
-            <marker date="1499361490000" expanded="true" signature="586:628" ph="memcached: &lt;1 key&gt;" />
-            <marker date="1499361490000" expanded="true" signature="612:628" ph="memcached:alpine" />
-            <marker date="1499361490000" expanded="true" signature="633:838" ph="php: &lt;3 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="653:664" ph="./build/php" />
-            <marker date="1499361490000" expanded="true" signature="673:786" ph="links: &lt;3 items&gt;" />
-            <marker date="1499361490000" expanded="true" signature="694:703" ph="memcached" />
-            <marker date="1499361490000" expanded="true" signature="718:738" ph="mysql:db.localhost" />
-            <marker date="1499361490000" expanded="true" signature="753:786" ph="nginx-pro….localhost" />
-            <marker date="1499361490000" expanded="true" signature="796:838" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="819:838" ph="./www:/var/www/html" />
-            <marker date="1499361490000" expanded="true" signature="843:1052" ph="nginx: &lt;4 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="865:878" ph="./build/nginx" />
-            <marker date="1499361490000" expanded="true" signature="887:968" ph="environment: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="914:968" ph="VIRTUAL_H….localhost" />
-            <marker date="1499361490000" expanded="true" signature="977:1019" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="1000:1019" ph="./www:/var/www/html" />
-            <marker date="1499361490000" expanded="true" signature="1028:1052" ph="links: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="1049:1052" ph="php" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -454,34 +499,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/up">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/php-56-xdebug/conf/xdebug.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/build/php/php-fpm-entrypoint">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/build/php/php-52-fpm-entrypoint">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -502,102 +523,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1499361490000" expanded="true" signature="9:12" ph="2" />
-            <marker date="1499361490000" expanded="true" signature="14:1052" ph="services: &lt;5 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="28:216" ph="nginx-proxy: &lt;4 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="56:75" ph="jwilder/nginx-proxy" />
-            <marker date="1499361490000" expanded="true" signature="100:111" ph="nginx-proxy" />
-            <marker date="1499361490000" expanded="true" signature="120:146" ph="ports: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="139:146" ph="80:80" />
-            <marker date="1499361490000" expanded="true" signature="155:216" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="176:216" ph="/var/run/…er.sock:ro" />
-            <marker date="1499361490000" expanded="true" signature="221:581" ph="mysql: &lt;5 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="243:248" ph="mysql" />
-            <marker date="1499361490000" expanded="true" signature="258:462" ph="environment: &lt;5 items&gt;" />
-            <marker date="1499361490000" expanded="true" signature="285:310" ph="VIRTUAL_H….localhost" />
-            <marker date="1499361490000" expanded="true" signature="325:349" ph="MYSQL_ROO…SWORD=root" />
-            <marker date="1499361490000" expanded="true" signature="364:388" ph="MYSQL_DAT…=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="403:423" ph="MYSQL_USER=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="438:462" ph="MYSQL_PAS…=${DOMAIN}" />
-            <marker date="1499361490000" expanded="true" signature="471:519" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="494:519" ph="./databas…/lib/mysql" />
-            <marker date="1499361490000" expanded="true" signature="528:560" ph="ports: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="549:560" ph="3306:3306" />
-            <marker date="1499361490000" expanded="true" signature="575:581" ph="1000" />
-            <marker date="1499361490000" expanded="true" signature="586:628" ph="memcached: &lt;1 key&gt;" />
-            <marker date="1499361490000" expanded="true" signature="612:628" ph="memcached:alpine" />
-            <marker date="1499361490000" expanded="true" signature="633:838" ph="php: &lt;3 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="653:664" ph="./build/php" />
-            <marker date="1499361490000" expanded="true" signature="673:786" ph="links: &lt;3 items&gt;" />
-            <marker date="1499361490000" expanded="true" signature="694:703" ph="memcached" />
-            <marker date="1499361490000" expanded="true" signature="718:738" ph="mysql:db.localhost" />
-            <marker date="1499361490000" expanded="true" signature="753:786" ph="nginx-pro….localhost" />
-            <marker date="1499361490000" expanded="true" signature="796:838" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="819:838" ph="./www:/var/www/html" />
-            <marker date="1499361490000" expanded="true" signature="843:1052" ph="nginx: &lt;4 keys&gt;" />
-            <marker date="1499361490000" expanded="true" signature="865:878" ph="./build/nginx" />
-            <marker date="1499361490000" expanded="true" signature="887:968" ph="environment: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="914:968" ph="VIRTUAL_H….localhost" />
-            <marker date="1499361490000" expanded="true" signature="977:1019" ph="volumes: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="1000:1019" ph="./www:/var/www/html" />
-            <marker date="1499361490000" expanded="true" signature="1028:1052" ph="links: &lt;1 item&gt;" />
-            <marker date="1499361490000" expanded="true" signature="1049:1052" ph="php" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/setup">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/wp-cli.local.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -634,22 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/up">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/setup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stacks/php-55-wp-multisite/up">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -662,14 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -746,6 +651,358 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-298">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499363547000" expanded="true" signature="9:12" ph="2" />
+            <marker date="1499363547000" expanded="true" signature="14:1128" ph="services: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="28:216" ph="nginx-proxy: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="56:75" ph="jwilder/nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="100:111" ph="nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="120:146" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="139:146" ph="80:80" />
+            <marker date="1499363547000" expanded="true" signature="155:216" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="176:216" ph="/var/run/…er.sock:ro" />
+            <marker date="1499363547000" expanded="true" signature="221:581" ph="mysql: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="243:248" ph="mysql" />
+            <marker date="1499363547000" expanded="true" signature="258:462" ph="environment: &lt;5 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="285:310" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="325:349" ph="MYSQL_ROO…SWORD=root" />
+            <marker date="1499363547000" expanded="true" signature="364:388" ph="MYSQL_DAT…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="403:423" ph="MYSQL_USER=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="438:462" ph="MYSQL_PAS…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="471:519" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="494:519" ph="./databas…/lib/mysql" />
+            <marker date="1499363547000" expanded="true" signature="528:560" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="549:560" ph="3306:3306" />
+            <marker date="1499363547000" expanded="true" signature="575:581" ph="1000" />
+            <marker date="1499363547000" expanded="true" signature="586:628" ph="memcached: &lt;1 key&gt;" />
+            <marker date="1499363547000" expanded="true" signature="612:628" ph="memcached:alpine" />
+            <marker date="1499363547000" expanded="true" signature="633:914" ph="php: &lt;3 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="729:740" ph="./build/php" />
+            <marker date="1499363547000" expanded="true" signature="749:862" ph="links: &lt;3 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="770:779" ph="memcached" />
+            <marker date="1499363547000" expanded="true" signature="794:814" ph="mysql:db.localhost" />
+            <marker date="1499363547000" expanded="true" signature="829:862" ph="nginx-pro….localhost" />
+            <marker date="1499363547000" expanded="true" signature="872:914" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="895:914" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="919:1128" ph="nginx: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="941:954" ph="./build/nginx" />
+            <marker date="1499363547000" expanded="true" signature="963:1044" ph="environment: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="990:1044" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="1053:1095" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1076:1095" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="1104:1128" ph="links: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1125:1128" ph="php" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding>
+            <marker date="1499363547000" expanded="true" signature="9:12" ph="2" />
+            <marker date="1499363547000" expanded="true" signature="14:1128" ph="services: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="28:216" ph="nginx-proxy: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="56:75" ph="jwilder/nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="100:111" ph="nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="120:146" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="139:146" ph="80:80" />
+            <marker date="1499363547000" expanded="true" signature="155:216" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="176:216" ph="/var/run/…er.sock:ro" />
+            <marker date="1499363547000" expanded="true" signature="221:581" ph="mysql: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="243:248" ph="mysql" />
+            <marker date="1499363547000" expanded="true" signature="258:462" ph="environment: &lt;5 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="285:310" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="325:349" ph="MYSQL_ROO…SWORD=root" />
+            <marker date="1499363547000" expanded="true" signature="364:388" ph="MYSQL_DAT…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="403:423" ph="MYSQL_USER=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="438:462" ph="MYSQL_PAS…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="471:519" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="494:519" ph="./databas…/lib/mysql" />
+            <marker date="1499363547000" expanded="true" signature="528:560" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="549:560" ph="3306:3306" />
+            <marker date="1499363547000" expanded="true" signature="575:581" ph="1000" />
+            <marker date="1499363547000" expanded="true" signature="586:628" ph="memcached: &lt;1 key&gt;" />
+            <marker date="1499363547000" expanded="true" signature="612:628" ph="memcached:alpine" />
+            <marker date="1499363547000" expanded="true" signature="633:914" ph="php: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="646:713" ph="environment: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="673:713" ph="XDEBUG_RE…MOTE_HOST}" />
+            <marker date="1499363547000" expanded="true" signature="729:740" ph="./build/php" />
+            <marker date="1499363547000" expanded="true" signature="749:862" ph="links: &lt;3 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="770:779" ph="memcached" />
+            <marker date="1499363547000" expanded="true" signature="794:814" ph="mysql:db.localhost" />
+            <marker date="1499363547000" expanded="true" signature="829:862" ph="nginx-pro….localhost" />
+            <marker date="1499363547000" expanded="true" signature="872:914" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="895:914" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="919:1128" ph="nginx: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="941:954" ph="./build/nginx" />
+            <marker date="1499363547000" expanded="true" signature="963:1044" ph="environment: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="990:1044" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="1053:1095" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1076:1095" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="1104:1128" ph="links: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1125:1128" ph="php" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/build/php/php-52-fpm-entrypoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/build/php/php-fpm-entrypoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-70-wp-multisite/build/php/entrypoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/build/php/entrypoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/up">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-71-wp-multisite/up">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-70-wp-multisite/up">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-269">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499363547000" expanded="true" signature="9:12" ph="2" />
+            <marker date="1499363547000" expanded="true" signature="14:1128" ph="services: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="28:216" ph="nginx-proxy: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="56:75" ph="jwilder/nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="100:111" ph="nginx-proxy" />
+            <marker date="1499363547000" expanded="true" signature="120:146" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="139:146" ph="80:80" />
+            <marker date="1499363547000" expanded="true" signature="155:216" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="176:216" ph="/var/run/…er.sock:ro" />
+            <marker date="1499363547000" expanded="true" signature="221:581" ph="mysql: &lt;5 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="243:248" ph="mysql" />
+            <marker date="1499363547000" expanded="true" signature="258:462" ph="environment: &lt;5 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="285:310" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="325:349" ph="MYSQL_ROO…SWORD=root" />
+            <marker date="1499363547000" expanded="true" signature="364:388" ph="MYSQL_DAT…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="403:423" ph="MYSQL_USER=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="438:462" ph="MYSQL_PAS…=${DOMAIN}" />
+            <marker date="1499363547000" expanded="true" signature="471:519" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="494:519" ph="./databas…/lib/mysql" />
+            <marker date="1499363547000" expanded="true" signature="528:560" ph="ports: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="549:560" ph="3306:3306" />
+            <marker date="1499363547000" expanded="true" signature="575:581" ph="1000" />
+            <marker date="1499363547000" expanded="true" signature="586:628" ph="memcached: &lt;1 key&gt;" />
+            <marker date="1499363547000" expanded="true" signature="612:628" ph="memcached:alpine" />
+            <marker date="1499363547000" expanded="true" signature="633:914" ph="php: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="646:713" ph="environment: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="673:713" ph="XDEBUG_RE…MOTE_HOST}" />
+            <marker date="1499363547000" expanded="true" signature="729:740" ph="./build/php" />
+            <marker date="1499363547000" expanded="true" signature="749:862" ph="links: &lt;3 items&gt;" />
+            <marker date="1499363547000" expanded="true" signature="770:779" ph="memcached" />
+            <marker date="1499363547000" expanded="true" signature="794:814" ph="mysql:db.localhost" />
+            <marker date="1499363547000" expanded="true" signature="829:862" ph="nginx-pro….localhost" />
+            <marker date="1499363547000" expanded="true" signature="872:914" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="895:914" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="919:1128" ph="nginx: &lt;4 keys&gt;" />
+            <marker date="1499363547000" expanded="true" signature="941:954" ph="./build/nginx" />
+            <marker date="1499363547000" expanded="true" signature="963:1044" ph="environment: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="990:1044" ph="VIRTUAL_H….localhost" />
+            <marker date="1499363547000" expanded="true" signature="1053:1095" ph="volumes: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1076:1095" ph="./www:/var/www/html" />
+            <marker date="1499363547000" expanded="true" signature="1104:1128" ph="links: &lt;1 item&gt;" />
+            <marker date="1499363547000" expanded="true" signature="1125:1128" ph="php" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/setup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/wp-cli.local.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1499260956000" expanded="true" signature="6:9" ph="www" />
+            <marker date="1499260956000" expanded="true" signature="15:42" ph="http://{{….localhost" />
+            <marker date="1499260956000" expanded="true" signature="49:54" ph="admin" />
+            <marker date="1499260956000" expanded="true" signature="62:67" ph="false" />
+            <marker date="1499260956000" expanded="true" signature="75:79" ph="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/up">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/memcache.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/xdebug.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-52-wp-multisite/build/php/conf/opcache.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/conf/opcache.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/conf/xdebug.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/build/php/entrypoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/up">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stacks/php-56-wp-multisite/setup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

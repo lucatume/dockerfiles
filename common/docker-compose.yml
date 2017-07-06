@@ -24,6 +24,8 @@ services:
     memcached:
         image: memcached:alpine
     php:
+        environment:
+            - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
         build: ./build/php
         links:
             - memcached

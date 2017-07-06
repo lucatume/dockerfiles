@@ -20,15 +20,19 @@ detectTheSystem(){
 
 getIPAddress(){
     if [ $system == "macos" ]; then
-        thisAddress=$(ipconfig getifaddr en0)
-        if [ ! $thisAddress ]; then
-            thisAddress=$(ipconfig getifaddr en1)
+        ipAddress=$(ipconfig getifaddr en0)
+        if [ ! $ipAddress ]; then
+            ipAddress=$(ipconfig getifaddr en1)
         fi
     else
-        thisAddress=$(ip route get 8.8.8.8 | awk '/8.8.8.8/ {print $NF}')
+        ipAddress=$(ip route get 8.8.8.8 | awk '/8.8.8.8/ {print $NF}')
     fi
 
-    echo $thisAddress
+    if [[ $ipAddress == "" ]]; then
+        ipAddress=127.0.0.1
+    fi
+
+    echo $ipAddress
 }
 
 system=$(detectTheSystem)
