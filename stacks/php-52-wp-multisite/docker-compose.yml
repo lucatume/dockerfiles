@@ -28,6 +28,8 @@ services:
         links:
             - memcached
             - "mysql:db.localhost"
+            - "nginx-proxy:${DOMAIN}.localhost"
+
         volumes:
             - ./www:/var/www/html
     nginx:

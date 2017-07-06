@@ -25,6 +25,8 @@ services:
         build: ./build/php
         links:
             - "mysql:db.localhost"
+            - "nginx-proxy:${DOMAIN}.localhost"
+
         volumes:
             - ./www:/var/www/html
     nginx:
