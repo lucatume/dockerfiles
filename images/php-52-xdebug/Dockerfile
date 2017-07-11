@@ -38,13 +38,13 @@ RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
 COPY entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint
 
-# activate Xdebug on php-56-xdebug-52-xdebug
+# activate Xdebug on php
 COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-# activate Opcache on php-56-xdebug-52-xdebug
+# activate Opcache on php
 COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-# activate Memcache on php-56-xdebug-52-xdebug
+# activate Memcache on php
 COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
 
 ENTRYPOINT ["entrypoint"]

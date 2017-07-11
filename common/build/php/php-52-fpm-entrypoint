@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # replace the remote_host in Xdebug configuration
-xdebugConfig="/usr/local/etc/php-52-xdebug/conf.d/xdebug.ini"
+xdebugConfig="/usr/local/etc/php/conf.d/xdebug.ini"
 
 remoteHost="127.0.0.1"
 
