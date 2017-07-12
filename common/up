@@ -41,4 +41,7 @@ address=$(getIPAddress)
 echo "System is $system"
 echo "Address is $address"
 
+echo "Stopping other containers..."
+docker stop $(docker ps -aq) > /dev/null
+
 XDEBUG_REMOTE_HOST=$address docker-compose up
