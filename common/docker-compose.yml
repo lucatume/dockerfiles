@@ -35,7 +35,7 @@ services:
             - memcached
             - "mysql:db.localhost"
             - "nginx-proxy:${DOMAIN}.localhost"
-
+            - "mailcatcher:mail"
         volumes:
             - ./www:/var/www/html
     nginx:

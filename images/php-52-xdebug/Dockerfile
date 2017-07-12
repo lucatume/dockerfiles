@@ -10,7 +10,12 @@ RUN chown -R www-data: /var/www/html
 
 # install dependencies we need
 RUN apt-get update && \
-    apt-get install -y wget zip build-essential php5-dev --no-install-recommends
+    apt-get install -y --no-install-recommends \
+    wget \
+    zip \
+    build-essential \
+    php5-dev \
+    ssmtp
 
 # download and build XDebug
 RUN wget https://xdebug.org/files/xdebug-2.2.7.tgz -P $(pwd) && \
@@ -39,8 +44,7 @@ COPY entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint
 
 #install ssmtp to connect to the Mailcatcher container
-RUN apt-get install ssmtp -y \
-    && echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
+RUN echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
     && echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
 
 # activate Xdebug on php
