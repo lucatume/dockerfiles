@@ -31,6 +31,11 @@ RUN usermod -u 1000 www-data
 COPY entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint
 
+#install ssmtp to connect to the Mailcatcher container
+RUN apt-get install ssmtp -y \
+    && echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
+    && echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
+    
 # Configure extensions
 COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug-conf.ini
 COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache-conf.ini

@@ -38,6 +38,11 @@ RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
 COPY entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint
 
+#install ssmtp to connect to the Mailcatcher container
+RUN apt-get install ssmtp -y \
+    && echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
+    && echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
+
 # activate Xdebug on php
 COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 

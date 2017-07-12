@@ -23,6 +23,10 @@ services:
         user: "1000"
     memcached:
         image: memcached:alpine
+    mailcatcher:
+        image: helder/mailcatcher
+        environment:
+            - VIRTUAL_HOST=mailcatcher.localhost
     php:
         environment:
             - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
