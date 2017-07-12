@@ -40,10 +40,23 @@ sh ./up
 Beside the PHP version all the stacks provide PHP FPM with an Nginx server, a Memcached server to handle caching, a MySQL database available to the PHP container at `db.localhost` and a Mailcatcher container to handle and debug emails.  
 Thanks to the reverse proxy the stack will also expose:
 
-* the database container at `db.localhost:3306`
-* the Mailcatcher container at `hmailcatcher.localhost`
+* the database container at `db.localhost:3306`, see "Database" section for credentials
+* the Mailcatcher container at `mailcatcher.localhost`
 * the stack available at `app.localhost` (assuming the `app` domain above)
 * all the stacks have XDebug activated on each request calling back on port `9001`
+
+## Database
+The stack database container will create the default MySQL databases and an additional database with the same name as the domain.  
+Assuming the domain is set to `app` the database would:
+
+* have a `root` user with `root` password
+* create an `app` database with a default `app` user (password: `app`)
+
+The database is accessible at the `db.localhost` host, port `3306`; you can access it like this:
+
+```shell
+mysql -uroot -p -hdb.localhost
+```
 
 ## XDebug
 Each PHP container has XDebug set up to autostart and connect to a remote host by default.  
