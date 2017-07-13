@@ -24,3 +24,10 @@ find $(pwd)/build -type f -exec \
 echo "Building images..."
 
 docker-compose build
+
+echo "Creating reverse proxy config files..."
+mkdir -p server/conf/nginx
+
+nginxConf="client_max_body_size 100m;"
+
+echo $nginxConf > "server/conf/nginx/$domain.localhost"

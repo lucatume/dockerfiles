@@ -5,9 +5,10 @@ services:
         image: jwilder/nginx-proxy
         container_name: nginx-proxy
         ports:
-          - "80:80"
+            - "80:80"
         volumes:
-          - /var/run/docker.sock:/tmp/docker.sock:ro
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./server/conf/nginx:/etc/nginx/vhost.d:ro
     mysql:
         image: mysql 
         environment:
@@ -17,7 +18,7 @@ services:
             - MYSQL_USER=${DOMAIN}
             - MYSQL_PASSWORD=${DOMAIN}
         volumes:
-            - ./database:/var/lib/mysql
+            - ./server/database:/var/lib/mysql
         ports:
             - "3306:3306"
         user: "1000"
@@ -30,19 +31,19 @@ services:
     php:
         environment:
             - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
-        build: ./build/php
+        build: ./server/build/php
         links:
             - memcached
             - "mysql:db.localhost"
             - "nginx-proxy:${DOMAIN}.localhost"
             - "mailcatcher:mail"
         volumes:
-            - ./www:/var/www/html
+            - ./server/www:/var/www/html
     nginx:
-        build: ./build/nginx
+        build: ./server/build/nginx
         environment:
             - VIRTUAL_HOST=${DOMAIN}.localhost,*.${DOMAIN}.localhost
         volumes:
-            - ./www:/var/www/html
+            - ./server/www:/var/www/html
         links:
             - php
