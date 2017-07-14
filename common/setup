@@ -30,4 +30,4 @@ mkdir -p server/conf/nginx
 
 nginxConf="client_max_body_size 100m;"
 
-echo $nginxConf > "server/conf/nginx/$domain.localhost"
+echo $nginxConf > "conf/nginx/$domain.localhost"

@@ -8,7 +8,7 @@ services:
             - "80:80"
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock:ro
-            - ./server/conf/nginx:/etc/nginx/vhost.d:ro
+            - ./conf/nginx:/etc/nginx/vhost.d:ro
     mysql:
         image: mysql 
         environment:
@@ -18,7 +18,7 @@ services:
             - MYSQL_USER=${DOMAIN}
             - MYSQL_PASSWORD=${DOMAIN}
         volumes:
-            - ./server/database:/var/lib/mysql
+            - ./database:/var/lib/mysql
         ports:
             - "3306:3306"
         user: "1000"
@@ -31,19 +31,19 @@ services:
     php:
         environment:
             - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
-        build: ./server/build/php
+        build: ./build/php
         links:
             - memcached
             - "mysql:db.localhost"
             - "nginx-proxy:${DOMAIN}.localhost"
             - "mailcatcher:mail"
         volumes:
-            - ./server/www:/var/www/html
+            - ./www:/var/www/html
     nginx:
-        build: ./server/build/nginx
+        build: ./build/nginx
         environment:
             - VIRTUAL_HOST=${DOMAIN}.localhost,*.${DOMAIN}.localhost
         volumes:
-            - ./server/www:/var/www/html
+            - ./www:/var/www/html
         links:
             - php
