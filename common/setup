@@ -8,17 +8,17 @@ if [ ""  == $domain ]; then
 	return -1
 fi
 
-for file in .env wp-cli.local.yml www/index.php build/nginx/conf.d/default.conf; do
+for file in docker-compose.yml wp-cli.local.yml docker/www/index.php docker/build/nginx/conf.d/default.conf; do
 	echo "Replacing in $file..."
     sed -i '' "s/{{domain}}/$domain/g" $(pwd)/$file
 done
 
-echo "Replacing in www..."
-find $(pwd)/www -type f -exec \
+echo "Replacing in docker/www..."
+find $(pwd)/docker/www -type f -exec \
     sed -i '' "s/{{domain}}/$domain/g" {} +
 
-echo "Replacing in build..."
-find $(pwd)/build -type f -exec \
+echo "Replacing in docker/build..."
+find $(pwd)/docker/build -type f -exec \
     sed -i '' "s/{{domain}}/$domain/g" {} +
 
 echo "Building images..."
@@ -26,8 +26,8 @@ echo "Building images..."
 docker-compose build
 
 echo "Creating reverse proxy config files..."
-mkdir -p server/conf/nginx
+mkdir -p docker/conf/nginx
 
 nginxConf="client_max_body_size 100m;"
 
-echo $nginxConf > "conf/nginx/$domain.localhost"
+echo $nginxConf > "docker/conf/nginx/$domain.localhost"
