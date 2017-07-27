@@ -1,6 +1,6 @@
 FROM tommylau/php-5.2
 
-LABEL maintainer "luca@theaveragedev.com"
+LABEL maintainer="luca@theaveragedev.com"
 
 VOLUME /var/www/html
 
