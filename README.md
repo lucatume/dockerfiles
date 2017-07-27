@@ -17,7 +17,7 @@ git clone https://github.com/lucatume/dockerfiles.git dockerfiles
 In this README file I will assume the repository has been cloned in the `~/dockerfiles` folder.
 
 ## Usage
-Copy a stack, e.g. the `stack/php-52-wp-multisite` one, to the project folder:
+The images are not meant to be alone, but in the context of a Compose managed stack; copy a stack, e.g. the `stack/php-52` one, to the project folder:
 
 ```bash
 cp -r ~/dockerfiles/stacks/php-52 project
@@ -62,4 +62,4 @@ mysql -uroot -p -hdb.localhost
 Each PHP container has XDebug set up to autostart and connect to a remote host by default.  
 The `up` script will try to infer the host machine IP address and set it in the `xdebug.remote_host` setting; should this value be consistently wrong you can define the IP adddress in the `.env` file of each container.
 
-The stacks **are not** meant for production
+The stacks **are not** meant for production!
