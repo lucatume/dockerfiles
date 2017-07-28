@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+conf="/etc/nginx/conf.d/default.conf"
+host="wp.localhost"
+
+if [[ $HOST != "" ]]; then
+	host="$HOST"
+fi
+
+echo "Host set to $host"
+
+sed -i'' "s/<<host>>/$host/g" $conf
+
+# if first arg is `-f` or `--some-option` call the php bin
+if [ "${1#-}" != "$1" ]; then
+	set -- nginx "$@"
+elif [ "" == "$1" ]; then
+	# if no command was provided start php fpm
+	set -- nginx -g 'daemon off;'
+fi
+
+exec "$@"

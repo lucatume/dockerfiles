@@ -1,0 +1,19 @@
+file:
+  /etc/nginx/conf.d/default.conf:
+    exists: true
+    filetype: file
+    contains:
+      {{if getEnv "HOST" | eq ""}}
+        - "server_name wp.localhost *.wp.localhost" # default host
+      {{else}}
+        - "!server_name wp.localhost *.wp.localhost" # no default host
+        - "server_name {{getEnv "HOST"}} *.{{getEnv "HOST"}}" # specified host
+      {{end}}
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+process:
+  nginx:
+    running: true
