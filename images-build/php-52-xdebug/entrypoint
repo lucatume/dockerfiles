@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # replace the remote_host in Xdebug configuration
 xdebugConfig="/usr/local/etc/php/conf.d/xdebug.ini"
 
@@ -7,21 +9,29 @@ remoteHost="127.0.0.1"
 remotePort="9001"
 
 if [[ $XDEBUG_REMOTE_HOST != "" ]]; then
-   echo "XDebug remote host will be set to $XDEBUG_REMOTE_HOST"
+   echo "XDebug remote host set to $XDEBUG_REMOTE_HOST"
    remoteHost="$XDEBUG_REMOTE_HOST"
 else
-   echo "XDebug remote host will be set to $remoteHost"
+   echo "XDebug remote host set to $remoteHost"
 fi
 
 sed -i'' "s/<<remoteHost>>/$remoteHost/g" $xdebugConfig
 
 if [[ $XDEBUG_REMOTE_PORT != "" ]]; then
-   echo "XDebug remote port will be set to $XDEBUG_REMOTE_PORT"
-   remoteHost="$XDEBUG_REMOTE_PORT"
+   echo "XDebug remote port set to $XDEBUG_REMOTE_PORT"
+   remotePort="$XDEBUG_REMOTE_PORT"
 else
-   echo "XDebug remote port will be set to $remotePort"
+   echo "XDebug remote port set to $remotePort"
 fi
 
 sed -i'' "s/<<remotePort>>/$remotePort/g" $xdebugConfig
 
-php-cgi --fpm
+# if first arg is `-f` or `--some-option` call the php bin
+if [ "${1#-}" != "$1" ]; then
+	set -- php "$@"
+elif [ "" == "$1" ]; then
+	# if no command was provided start php fpm
+	set -- php-cgi --fpm	
+fi
+
+exec "$@"
