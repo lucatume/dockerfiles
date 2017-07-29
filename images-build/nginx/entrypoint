@@ -2,15 +2,15 @@
 set -e
 
 conf="/etc/nginx/conf.d/default.conf"
-host="wp.localhost"
+virtualHost="wp.localhost"
 
-if [[ $HOST != "" ]]; then
-	host="$HOST"
+if [[ $VIRTUAL_HOST != "" ]]; then
+	virtualHost="$VIRTUAL_HOST"
 fi
 
-echo "Host set to $host"
+echo "Host set to $virtualHost"
 
-sed -i'' "s/<<host>>/$host/g" $conf
+sed -i'' "s/<<virtualHost>>/$virtualHost/g" $conf
 
 # if first arg is `-f` or `--some-option` call the php bin
 if [ "${1#-}" != "$1" ]; then

@@ -3,11 +3,11 @@ file:
     exists: true
     filetype: file
     contains:
-      {{if getEnv "HOST" | eq ""}}
+      {{if getEnv "VIRTUAL_HOST" | eq ""}}
         - "server_name wp.localhost *.wp.localhost" # default host
       {{else}}
         - "!server_name wp.localhost *.wp.localhost" # no default host
-        - "server_name {{getEnv "HOST"}} *.{{getEnv "HOST"}}" # specified host
+        - "server_name {{getEnv "VIRTUAL_HOST"}} *.{{getEnv "VIRTUAL_HOST"}}" # specified host
       {{end}}
 port:
   tcp:80:

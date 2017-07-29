@@ -20,6 +20,6 @@ docker build -t sut .
 
 start_support_container
 dgoss run --link test_support_php:php -p 8080:80 sut
-dgoss run --link test_support_php:php -e HOST=foo.bar -p 8080:80 sut
-dgoss run --link test_support_php:php -e HOST=localhost:8080 -p 8080:80 sut
+dgoss run --link test_support_php:php -e VIRTUAL_HOST=foo.bar -p 8080:80 sut
+dgoss run --link test_support_php:php -e VIRTUAL_HOST=localhost:8080 -p 8080:80 sut
 stop_support_container
