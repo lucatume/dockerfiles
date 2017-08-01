@@ -1,0 +1,54 @@
+file:
+  /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini:
+    exists: true
+    filetype: file
+    contains:
+      {{if getEnv "OPCACHE_DISABLE" | eq "1"}}
+        - ";zend_extension" # should be deactivated
+      {{else}}
+        - "!;zend_extension" # should be activated
+        - "zend_extension"
+      {{end}}
+  /usr/local/etc/php/conf.d/opcache-conf.ini:
+    exists: true
+    filetype: file
+    contains:
+        - opcache.validate_timestamps=1
+        - opcache.revalidate_freq=2
+  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini:
+    exists: true
+    filetype: file
+    contains:
+      {{if getEnv "XDEBUG_DISABLE" | eq "1"}}
+        - ";zend_extension" # should be deactivated
+      {{else}}
+        - "!;zend_extension" # should be activated
+        - "zend_extension"
+      {{end}}
+  /usr/local/etc/php/conf.d/xdebug-conf.ini:
+    exists: true
+    filetype: file
+    contains:
+      {{if getEnv "XDEBUG_REMOTE_HOST" | eq ""}}
+        - xdebug.remote_host=127.0.0.1
+      {{else}}
+        - xdebug.remote_host={{getEnv "XDEBUG_REMOTE_HOST"}}
+      {{end}}
+      {{if getEnv "XDEBUG_REMOTE_PORT" | eq ""}}
+        - xdebug.remote_port=9001
+      {{else}}
+        - xdebug.remote_port={{getEnv "XDEBUG_REMOTE_PORT"}}
+      {{end}}
+command:
+  codecept:
+    exit-status: 0
+    stderr: []
+    timeout: 10000
+  composer:
+    exit-status: 0
+    stderr: []
+    timeout: 10000
+  wp:
+    exit-status: 0
+    stderr: []
+    timeout: 10000

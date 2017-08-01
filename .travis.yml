@@ -1,0 +1,20 @@
+sudo: required
+
+language: php
+
+services:
+  - docker
+
+install:
+  # install goss and dgoss
+  - mkdir -p dgoss
+  - curl -L https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dgoss/dgoss -o $(pwd)/dgoss
+  - chmod +rx dgoss/dgoss
+  - curl -L https://github.com/aelsabbahy/goss/releases/download/v0.3.4/goss-linux-amd64 -o $(pwd)/dgoss/goss-linux-amd64
+  - export GOSS_PATH=$(pwd)/dgoss/goss-linux-amd64
+  - export PATH=$(pwd)/dgoss:$PATH
+
+script:
+  - sh images/build/nginx/test.sh
+  - sh images/build/php-52-xdebug/test.sh
+  - sh images/build/test-front/test.sh

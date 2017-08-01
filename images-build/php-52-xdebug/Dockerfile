@@ -40,9 +40,6 @@ RUN pecl install memcache
 RUN apt-get --purge remove -y wget zip build-essential php5-dev && \
     apt-get clean -y
 
-COPY entrypoint /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint
-
 #install ssmtp to connect to the Mailcatcher container
 RUN echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
     && echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf
@@ -55,5 +52,8 @@ COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # activate Memcache on php
 COPY conf/memcache.ini /usr/local/etc/php/conf.d/memcache.ini
+
+COPY entrypoint /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint
 
 ENTRYPOINT ["entrypoint"]
