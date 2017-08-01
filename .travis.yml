@@ -19,6 +19,6 @@ install:
   - export PATH=$(pwd)/dgoss:$PATH
 
 script:
-  - sh images-build/nginx/test.sh
-  - sh images-build/php-52-xdebug/test.sh
-  - sh images-build/test-front/test.sh
+  - (cd images-build/nginx; sh ./test.sh)
+  - (cd images-build/php-52-xdebug; sh ./test.sh)
+  - (cd images-build/test-front; sh ./test.sh)
