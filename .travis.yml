@@ -5,6 +5,10 @@ language: php
 services:
   - docker
 
+cache:
+  directories:
+    - dgoss
+    
 install:
   # install goss and dgoss
   - mkdir -p dgoss
