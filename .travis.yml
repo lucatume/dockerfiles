@@ -22,3 +22,24 @@ script:
   - (cd images-build/nginx; sh ./test.sh)
   - (cd images-build/php-52-xdebug; sh ./test.sh)
   - (cd images-build/test-front; sh ./test.sh)
+
+after_success:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  # setup the repo destinations
+  - export NGINX_REPO=lucatume/nginx-for-wp
+  - export PHP52_REPO=lucatume/php-52-xdebug
+  - export TESTFRONT_REPO=lucatume/test-front
+  # create the tag
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  # push the nginx repo
+  - docker tag $NGINX_REPO:$COMMIT $NGINX_REPO:$TAG
+  - docker tag $NGINX_REPO:$COMMIT $NGINX_REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $NGINX_REPO  
+  # push the PHP 5.2 repo
+  - docker tag $PHP52_REPO:$COMMIT $PHP52_REPO:$TAG
+  - docker tag $PHP52_REPO:$COMMIT $PHP52_REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $PHP52_REPO  
+  # push the test-front repo
+  - docker tag $TESTFRONT_REPO:$COMMIT $TESTFRONT_REPO:$TAG
+  - docker tag $TESTFRONT_REPO:$COMMIT $TESTFRONT_REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $TESTFRONT_REPO
