@@ -24,7 +24,7 @@ script:
   - (cd images-build/test-front; sh ./test.sh)
 
 after_success:
-  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   # setup the repo destinations
   - export NGINX_REPO=lucatume/nginx-for-wp
   - export PHP52_REPO=lucatume/php-52-xdebug
