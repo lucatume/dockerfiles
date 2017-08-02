@@ -4,8 +4,8 @@ set -e
 conf="/etc/nginx/conf.d/default.conf"
 serverDomain="wp.localhost"
 
-if [[ $serverDomain != "" ]]; then
-	serverDomain="$serverDomain"
+if [[ $DOMAIN != "" ]]; then
+	serverDomain="$DOMAIN"
 fi
 
 echo "Host set to $serverDomain"
