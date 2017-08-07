@@ -3,11 +3,11 @@ file:
     exists: true
     filetype: file
     contains:
-      {{if getEnv "DOMAIN" | eq ""}}
+      {{if getEnv "DOMAIN_NAME" | eq ""}}
         - "server_name wp.localhost *.wp.localhost" # default host
       {{else}}
         - "!server_name wp.localhost *.wp.localhost" # no default host
-        - "server_name {{getEnv "DOMAIN"}} *.{{getEnv "DOMAIN"}}" # specified host
+        - "server_name {{getEnv "DOMAIN_NAME"}} *.{{getEnv "DOMAIN_NAME"}}" # specified host
       {{end}}
 port:
   tcp:80:
