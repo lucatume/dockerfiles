@@ -11,3 +11,5 @@ docker build -t lucatume/nginx-for-wp .
 dgoss run --link test_support_php:php -v $(pwd)/tests/app:/var/www/html -p 8080:80 lucatume/nginx-for-wp
 dgoss run --link test_support_php:php -v $(pwd)/tests/app:/var/www/html -e DOMAIN_NAME=foo.bar -p 8080:80 lucatume/nginx-for-wp
 dgoss run --link test_support_php:php -v $(pwd)/tests/app:/var/www/html -e DOMAIN_NAME=localhost:8080 -p 8080:80 lucatume/nginx-for-wp
+
+docker tag lucatume/nginx-for-wp lucatume/nginx-for-wp:latest
