@@ -16,10 +16,11 @@ RUN set -ex; \
         libpng12-0 \
         libjpeg62-turbo \
         less \
+        mysql-client \
         ssmtp; \
     \
     docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
-    docker-php-ext-install gd mysqli opcache zip
+    docker-php-ext-install gd pdo pdo_mysql mysqli opcache zip
 
 # install and enable Xdebug and Opcache
 RUN pecl install xdebug-2.5.5 \
