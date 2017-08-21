@@ -75,6 +75,9 @@ RUN chmod a+rw /usr/local/etc/php/conf.d \
 COPY entrypoint /usr/local/bin/
 RUN chmod +rx /usr/local/bin/entrypoint
 
+# forward xdebug log to stdout
+RUN mkdir -p /var/log/xdebug && ln -sf /dev/stdout /var/log/xdebug/remote.log
+
 # run as the PHP user (www-data)
 USER www-data
 
