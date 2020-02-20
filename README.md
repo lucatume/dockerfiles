@@ -92,3 +92,75 @@ services:
 
 If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variables, then the container will wait for the database located by the credentials to be available before running the command.  
 If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
+
+## wp-browser
+
+A containerized version of [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub") with a minimal version of PHP extensions.  
+Based on the `lucatume/codeception` image.
+
+### Usage
+
+Run [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") tests, with [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub"), in the project:
+
+```bash
+docker pull lucatume/wp-browser
+docker run --rm -v $(pwd):/project lucatume/wp-browser run acceptance
+```
+The container **does not contain** all you might need to test your project and is meant to be used as part of a `docker-compose` stack.  
+
+Below an example `docker-compose` stack using the container:
+
+```yaml
+version: "3"
+
+networks:
+  test:
+
+services:
+
+  db:
+    networks:
+      - test
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  wordpress:
+    networks:
+      - test
+    image: wordpress
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    volumes:
+      - ./vendor/wordpress/wordpress:/var/www/html
+
+  chrome:
+    networks:
+      - test
+    image: selenium/standalone-chrome:3.141.59-oxygen
+
+  wp-browser:
+    networks:
+      - test
+    image: lucatume/wp-browser
+    environment:
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - wordpress
+      - chrome
+    volumes:
+    - .:/project
+```
+
+If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variables, then the container will wait for the database located by the credentials to be available before running the command.  
+If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
+
+Read [wp-browser documentation](https://wpbrowser.wptestkit.com/) for more information.
