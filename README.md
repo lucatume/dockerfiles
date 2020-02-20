@@ -1,65 +1,94 @@
-A collection of my Docker experiments and configurations.
+A collection of my Docker containers.
 
-* a PHP 5.2.17 (with Xdebug, Opcache, Memcached and Mailcatcher) LNMP stack aimed at WordPress development
-* a PHP 5.6 (with Xdebug, Opcache, Memcached and Mailcatcher) LNMP stack aimed at WordPress development
-* a PHP 7.0 (with Xdebug, Opcache, Memcached and Mailcatcher) LNMP stack aimed at WordPress development
-* a PHP 7.1 (with Xdebug and Opcache) LNMP stack aimed at WordPress development
+## composer
 
-While the images are meant for WordPress development they do not come with WordPress and can really be tailored to any PHP application.
+A collection of containers to get [Composer](https://getcomposer.org/), including the [hirak/prestissimo plugin](https://github.com/hirak/prestissimo) for the following PHP versions:
 
-## Installation
-Clone the repository in a known location:
+* 5.6
+* 7.0
+* 7.1
+* 7.2
+* 7.3
+* 7.4
 
-```bash
-git clone https://github.com/lucatume/dockerfiles.git dockerfiles
-```
+Including the latest Composer version.
 
-In this README file I will assume the repository has been cloned in the `~/dockerfiles` folder.
+### Usage
 
-## Usage
-The images are not meant to be alone, but in the context of a Compose managed stack; copy a stack, e.g. the `stack/php-52` one, to the project folder:
+Update Composer dependencies using a specific PHP version:
 
 ```bash
-cp -r ~/dockerfiles/stacks/php-52 project
+docker pull lucatume/composer:php5.6
+docker run --rm -v $(pwd):/project lucatume/composer:php5.6 update
 ```
 
-Change directory to the `project` folder and set up the project:
+## codeception
+
+An extension of the default [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") container with XDebug and a minimal set of  extensions required to run [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub") tests for WordPress.  
+The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").
+
+### Usage
+
+Run [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") tests in the project:
 
 ```bash
-cd project
-sh ./setup
+docker pull lucatume/codeception
+docker run --rm -v $(pwd):/project lucatume/codeception run acceptance
+```
+The container **does not contain** all you might need to test your project and is meant to be used as part of a `docker-compose` stack.  
+The container **does not include** [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").  
+
+Below an example `docker-compose` stack using the container:
+
+```yaml
+version: "3"
+
+networks:
+  test:
+
+services:
+
+  db:
+    networks:
+      - test
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  wordpress:
+    networks:
+      - test
+    image: wordpress
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    volumes:
+      - ./vendor/wordpress/wordpress:/var/www/html
+
+  chrome:
+    networks:
+      - test
+    image: selenium/standalone-chrome:3.141.59-oxygen
+
+  codeception:
+    networks:
+      - test
+    image: lucatume/codeception
+    environment:
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - wordpress
+      - chrome
+    volumes:
+    - .:/project
 ```
 
-The script will ask one or more questions to setup the site, answer correctly and the script will build the images.  
-Assuming the domain of the stack has been set to `app` the next step is to start the stack using the `up` script:
-
-```bash
-sh ./up
-```
-
-Beside the PHP version all the stacks provide PHP FPM with an Nginx server, a Memcached server to handle caching, a MySQL database available to the PHP container at `db.localhost` and a Mailcatcher container to handle and debug emails.  
-Thanks to the reverse proxy the stack will also expose:
-
-* the database container at `db.localhost:3306`, see "Database" section for credentials
-* the Mailcatcher container at `mailcatcher.localhost`
-* the stack available at `app.localhost` (assuming the `app` domain above)
-* all the stacks have XDebug activated on each request calling back on port `9001`
-
-## Database
-The stack database container will create the default MySQL databases and an additional database with the same name as the domain.  
-Assuming the domain is set to `app` the database would:
-
-* have a `root` user with `root` password
-* create an `app` database with a default `app` user (password: `app`)
-
-The database is accessible at the `db.localhost` host, port `3306`; you can access it like this:
-
-```shell
-mysql -uroot -p -hdb.localhost
-```
-
-## XDebug
-Each PHP container has XDebug set up to autostart and connect to a remote host by default.  
-The `up` script will try to infer the host machine IP address and set it in the `xdebug.remote_host` setting; should this value be consistently wrong you can define the IP adddress in the `.env` file of each container.
-
-The stacks **are not** meant for production!
+If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variables, then the container will wait for the database located by the credentials to be available before running the command.  
+If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
