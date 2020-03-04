@@ -201,3 +201,15 @@ parameters:
     # Uses func_get_args()
     - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
 ```
+
+## parallel-lint-56
+
+Lint PHP code using parallel linting on PHP 5.6.
+
+### Usage
+
+Lint your project `/src` directory:
+
+```bash
+docker run --rm -v $(pwd):/project lucatume/parallel-lint-5.6 --colors /project/src
+```
