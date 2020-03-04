@@ -164,3 +164,40 @@ If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variabl
 If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
 
 Read [wp-browser documentation](https://wpbrowser.wptestkit.com/) for more information.
+
+## wpstan
+
+A container to run [phpstan](https://github.com/phpstan/phpstan) and [phpstan for WordPress](https://github.com/szepeviktor/phpstan-wordpress) on source code.  
+
+### Usage
+
+Run `phpstan` on the source code, maximum level:
+
+```bash
+docker pull lucatume/wpstan:latest
+docker run --rm -v $(pwd):/project lucatume/wpstan analyze -l max
+```
+
+To customize the behavior of `phpstan` create a `phstan.neon.dist` configuration file in the project root directory.  
+Here's an example:
+
+```neon
+includes:
+  - phar://phpstan.phar/conf/bleedingEdge.neon
+  # Load it from inside the container.
+  - /composer/vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+  level: max
+  inferPrivatePropertyTypeFromConstructor: true
+  reportUnmatchedIgnoredErrors: false
+  paths:
+    - %currentWorkingDirectory%/src/
+  excludes_analyse:
+    - %currentWorkingDirectory%/src/some-file.php
+  autoload_files:
+    - %currentWorkingDirectory%/vendor/autoload.php
+    - %currentWorkingDirectory%/some-other-src-file.php
+  ignoreErrors:
+    # Uses func_get_args()
+    - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
+```
