@@ -4,6 +4,13 @@ WPBROWSER_VERSION = 2.2.36
 PHPSTAN_VERSION = 0.12
 PHPSTAN_WORDPRESS_VERSION = 0.6
 
+lint:
+	docker run --rm -v $$(pwd)/containers/codeception:/project replicated/dockerfilelint /project/Dockerfile
+	docker run --rm -v $$(pwd)/containers/composer:/project replicated/dockerfilelint /project/Dockerfile
+	docker run --rm -v $$(pwd)/containers/parallel-lint-56:/project replicated/dockerfilelint /project/Dockerfile
+	docker run --rm -v $$(pwd)/containers/wp-browser:/project replicated/dockerfilelint /project/Dockerfile
+	docker run --rm -v $$(pwd)/containers/wpstan:/project replicated/dockerfilelint /project/Dockerfile
+
 build: composer_containers codeception_container wpbrowser_container wpstan_container lint_container
 
 push:

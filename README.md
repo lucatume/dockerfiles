@@ -24,7 +24,15 @@ docker run --rm -v $(pwd):/project lucatume/composer:php5.6 update
 
 ## codeception
 
-An extension of the default [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") container with XDebug and a minimal set of  extensions required to run [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub") tests for WordPress.  
+An extension of the default [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") container and a minimal set of extensions required to run [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub") tests for WordPress.
+
+Included extensions are:
+
+* pdo_mysql 
+* gd 
+* mysqli
+* [uopz](https://www.php.net/manual/en/book.uopz.php)
+
 The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").
 
 ### Usage

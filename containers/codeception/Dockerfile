@@ -11,7 +11,7 @@ RUN apt-get update && \
 
 # Install required PHP extensions.
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-RUN install-php-extensions pdo_mysql gd mysqli
+RUN install-php-extensions pdo_mysql gd mysqli uopz
 
 # Set up the `wait-then` command.
 COPY wait-then.sh /usr/local/bin/wait-then
