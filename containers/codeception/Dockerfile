@@ -13,9 +13,10 @@ RUN apt-get update && \
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 RUN install-php-extensions pdo_mysql gd mysqli uopz
 
-# Set up the `wait-then` command.
-COPY wait-then.sh /usr/local/bin/wait-then
-RUN chmod +x /usr/local/bin/wait-then
+# Set up the Docker entrypoint script.
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-# If WordPress database env vars are set, then wait for WordPress database to be available.
-ENTRYPOINT ["wait-then", "codecept"]
+# The entypoint script will wait for WordPress database to be available, if the relevant db env vars are set.
+# Furthermore the script will redirect the commands to the project codecept binary, if that is available.
+ENTRYPOINT ["docker-entrypoint.sh"]
