@@ -10,7 +10,7 @@ dbpass="${WORDPRESS_DB_PASSWORD:-$WP_DB_PASSWORD}"
 
 if [ -n "${dbhost}" ] && [ -n "${dbname}" ] && [ -n "${dbuser}" ]; then
   timeout=0
-  timeout_message="WordPres did not come up in one minute: check db credentials or the WordPress container healt."
+  timeout_message="WordPress did not come up: check db credentials or the WordPress container health."
 
   until php -r "new PDO('mysql:host=${dbhost};dbname=${dbname}', '${dbuser}', '${dbpass}');" >/dev/null 2>&1; do
     timeout=$((timeout + 1))
