@@ -41,5 +41,6 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 
 USER docker:docker
+WORKDIR /project
 
 ENTRYPOINT ["docker-entrypoint.sh"]

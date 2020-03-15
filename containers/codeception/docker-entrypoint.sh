@@ -1,12 +1,21 @@
 #!/usr/bin/env sh
 
 set -e
-cmd="$@"
 
 dbhost="${WORDPRESS_DB_HOST:-$WP_DB_HOST}"
 dbname="${WORDPRESS_DB_NAME:-$WP_DB_NAME}"
 dbuser="${WORDPRESS_DB_USER:-$WP_DB_USER}"
 dbpass="${WORDPRESS_DB_PASSWORD:-$WP_DB_PASSWORD}"
+
+if [[ "${UID}:${GID}" != "0:0" ]]; then
+    echo -e "\033[32mFixing file ownership issues...\033[0m"
+    echo -e "See: https://github.com/boxboat/fixuid"
+    # Use fixuid to remap UID and GID correctly in the /project and /composer folders.
+    eval $(fixuid)
+else
+    echo 'If you are encountering file ownership issues, run this container using the "--user ${GID}:${GID}" option.'
+    echo 'The issues should be fixed for you.'
+fi
 
 if [ -n "${dbhost}" ] && [ -n "${dbname}" ] && [ -n "${dbuser}" ]; then
   timeout=0
@@ -34,4 +43,4 @@ else
   CODECEPT_BIN=/repo/codecept
 fi
 
-exec "${CODECEPT_BIN}" $cmd
+exec "${CODECEPT_BIN}" $@
