@@ -39,7 +39,7 @@ Included extensions are:
 * mysqli
 * [uopz](https://www.php.net/manual/en/book.uopz.php)
 
-The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").
+The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").  
 
 ### Usage
 
@@ -106,6 +106,8 @@ services:
 
 If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variables, then the container will wait for the database located by the credentials to be available before running the command.  
 If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
+
+Use [the `--user` option](https://docs.docker.com/engine/reference/commandline/run/) to avoid file permission issues if the container creates or updates files.
 
 ## wp-browser
 
@@ -177,7 +179,9 @@ services:
 If the container is passed the `WORDPRESS_DB_`, or `WP_DB_`, environment variables, then the container will wait for the database located by the credentials to be available before running the command.  
 If no WordPress database credentials are passed, or not all of them are defined, then the container will just run the `codecept` command from [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.").
 
-Read [wp-browser documentation](https://wpbrowser.wptestkit.com/) for more information.
+Read [wp-browser documentation](https://wpbrowser.wptestkit.com/) for more information.  
+
+Use [the `--user` option](https://docs.docker.com/engine/reference/commandline/run/) to avoid file permission issues if the container creates or updates files.
 
 ## wpstan
 
