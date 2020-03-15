@@ -19,8 +19,14 @@ Update Composer dependencies using a specific PHP version:
 
 ```bash
 docker pull lucatume/composer:php5.6
-docker run --rm -v $(pwd):/project lucatume/composer:php5.6 update
+docker run --rm \
+    -v $(pwd):/project \
+    -v ${HOME}/.composer/auth.json:/composer/auth.json \
+    --user ${UID}:${GID}
+    lucatume/composer:php5.6 update
 ```
+
+Use [the `--user` option](https://docs.docker.com/engine/reference/commandline/run/) to avoid file permission issues if the container creates or updates files.
 
 ## codeception
 
