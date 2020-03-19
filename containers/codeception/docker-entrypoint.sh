@@ -13,7 +13,7 @@ if [[ "${UID}:${GID}" != "0:0" ]]; then
     # Use fixuid to remap UID and GID correctly in the /project and /composer folders.
     eval $(fixuid)
 else
-    echo 'If you are encountering file ownership issues, run this container using the "--user ${GID}:${GID}" option.'
+    echo 'If you are encountering file ownership issues, run this container using the "--user ${UID}:${GID}" option.'
     echo 'The issues should be fixed for you.'
 fi
 
