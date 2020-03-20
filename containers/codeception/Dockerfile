@@ -30,6 +30,9 @@ RUN USER=docker && \
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
+USER docker:docker
+WORKDIR /project
+
 # The entypoint script will wait for WordPress database to be available, if the relevant db env vars are set.
 # Furthermore the script will redirect the commands to the project codecept binary, if that is available.
 ENTRYPOINT ["docker-entrypoint.sh"]
