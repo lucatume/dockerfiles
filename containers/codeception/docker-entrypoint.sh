@@ -53,15 +53,18 @@ else
   echo "CODECEPT_SKIP_URL_CHECK env var set to 1, skipping web-server checks."
 fi
 
+# Sleep a further delay if the CODECEPTION_WAIT env var is set.
+[ ! -z "${CODECEPTION_WAIT}" ] && echo "Waiting ${CODECEPTION_WAIT} seconds..." && sleep "${CODECEPTION_WAIT}"
+
 if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f /project/vendor/bin/codecept ]; then
   # If the project does have Codeception installed, then call the project codecept binary directly.
   echo -e "\033[32mUsing project Codeception binary.\033[0m"
   echo ''
   alias codecept="/project/vendor/bin/codecept"
-  CODECEPT_BIN="/project/vendor/bin/codecept"
+  CODECEPTION_BIN="/project/vendor/bin/codecept"
 else
   # Else fall-back and use the codecept binary provided from the original codeception container.
-  CODECEPT_BIN=/repo/codecept
+  CODECEPTION_BIN=/repo/codecept
 fi
 
-exec "${CODECEPT_BIN}" $@
+exec "${CODECEPTION_BIN}" $@
