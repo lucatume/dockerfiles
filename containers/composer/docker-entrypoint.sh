@@ -2,8 +2,7 @@
 
 if [[ "${UID}:${GID}" != "0:0" ]]; then
     echo -e "\033[32mFixing file ownership issues...\033[0m"
-    echo -e "See: https://github.com/boxboat/fixuid"
-    # Use fixuid to remap UID and GID correctly in the /project and /composer folders.
+    # Use fixuid to remap UID and GID correctly in the /composer folders.
     eval $(fixuid)
 else
     echo 'If you are encountering file ownership issues, run this container using the "--user ${UID}:${GID}" option.'
