@@ -41,8 +41,8 @@ else
 fi
 
 if [ "0" == "${SKIP_URL_CHECK}" ] && [ ! -z "${CHECK_URL}" ]; then
-  echo "Waiting for WordPress server to come up at ${CHECK_URL}..."
-  if [ "$(curl -Lkf --retry-connrefused --retry-delay 2 --retry-max-time 30 -o /dev/null --stderr /dev/null "${CHECK_URL}")" ]; then
+  echo "Waiting for WordPress site to be available at ${CHECK_URL}..."
+  if [ "$(curl -Lkf --retry-connrefused --retry 15 --retry-delay 2 -o /dev/null --stderr /dev/null "${CHECK_URL}")" ]; then
     echo -e "\033[31mWordPress site at ${CHECK_URL} not available: check db credentials or the WordPress container health.\033[0m"
     exit 1
   fi
