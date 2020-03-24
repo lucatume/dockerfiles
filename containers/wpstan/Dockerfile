@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN echo "memory_limit=-1" > $PHP_CONF_DIR/99_memory-limit.ini \
     && apk --no-cache add git \
-    && /var/tmp/* /tmp/*
+    && rm -rf /var/tmp/* /tmp/*
 
 RUN composer global require phpstan/phpstan:"^$PHPSTAN_VERSION" \
     szepeviktor/phpstan-wordpress:"^${PHPSTAN_WORDPRESS_VERSION}"
