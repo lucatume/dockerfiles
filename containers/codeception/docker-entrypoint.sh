@@ -40,7 +40,7 @@ else
   echo "CODECEPTION_SKIP_DB_CHECK set to 1, skipping db checks."
 fi
 
-if [ "0" == "${SKIP_URL_CHECK}" ] ; then
+if [ "0" == "${SKIP_URL_CHECK}" ]; then
   if [ ! -z "${CHECK_URL}" ]; then
     echo "Waiting for WordPress site to be available at ${CHECK_URL}..."
     if [ "$(curl -Lkf --retry-connrefused --retry 15 --retry-delay 2 -o /dev/null --stderr /dev/null "${CHECK_URL}")" ]; then
@@ -58,12 +58,20 @@ fi
 # Sleep a further delay if the CODECEPTION_WAIT env var is set.
 [ ! -z "${CODECEPTION_WAIT}" ] && echo "Waiting ${CODECEPTION_WAIT} seconds..." && sleep "${CODECEPTION_WAIT}"
 
-if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f /project/vendor/bin/codecept ]; then
+if [ ! -z "${CODECEPTION_PROJECT_DIR}" ]; then
+  test -d "${CODECEPTION_PROJECT_DIR}" || CODECEPTION_PROJECT_DIR="/project/${CODECEPTION_PROJECT_DIR}"
+  echo "Changing directory to ${CODECEPTION_PROJECT_DIR}"
+  cd "${CODECEPTION_PROJECT_DIR}"
+fi
+
+CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR:-/project}
+
+if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}" ]; then
   # If the project does have Codeception installed, then call the project codecept binary directly.
   echo -e "\033[32mUsing project Codeception binary.\033[0m"
   echo ''
-  alias codecept="/project/vendor/bin/codecept"
-  CODECEPTION_BIN="/project/vendor/bin/codecept"
+  alias codecept="${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept"
+  CODECEPTION_BIN="${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept"
 else
   # Else fall-back and use the codecept binary provided from the original codeception container.
   CODECEPTION_BIN=/repo/codecept
