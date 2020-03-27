@@ -6,7 +6,7 @@ CHECK_DB_HOST="${WORDPRESS_DB_HOST:-$WP_DB_HOST}"
 CHECK_DB_NAME="${WORDPRESS_DB_NAME:-$WP_DB_NAME}"
 CHECK_DB_USER="${WORDPRESS_DB_USER:-$WP_DB_USER}"
 CHECK_DB_PASSWORD="${WORDPRESS_DB_PASSWORD:-$WP_DB_PASSWORD}"
-CHECK_URL="${WORDPRESS_URL:-}"
+CHECK_URL="${WORDPRESS_URL:-$WP_URL}"
 SKIP_DB_CHECK=${CODECEPTION_SKIP_DB_CHECK:-0}
 SKIP_URL_CHECK=${CODECEPTION_SKIP_URL_CHECK:-0}
 SKIP_BIN_CHECK=${CODECEPTION_SKIP_BIN_CHECK:-0}
@@ -37,19 +37,22 @@ if [ "0" == "${SKIP_DB_CHECK}" ]; then
     echo "WordPress database environment variables (WP|WORDPRESS)_DB_(HOST|NAME|USER|PASSWORD) not provided, skipping database checks."
   fi
 else
-  echo "CODECEPTION_SKIP_DB_CHECK env var set to 1, skipping db checks."
+  echo "CODECEPTION_SKIP_DB_CHECK set to 1, skipping db checks."
 fi
 
-if [ "0" == "${SKIP_URL_CHECK}" ] && [ ! -z "${CHECK_URL}" ]; then
-  echo "Waiting for WordPress site to be available at ${CHECK_URL}..."
-  if [ "$(curl -Lkf --retry-connrefused --retry 15 --retry-delay 2 -o /dev/null --stderr /dev/null "${CHECK_URL}")" ]; then
-    echo -e "\033[31mWordPress site at ${CHECK_URL} not available: check db credentials or the WordPress container health.\033[0m"
-    exit 1
+if [ "0" == "${SKIP_URL_CHECK}" ] ; then
+  if [ ! -z "${CHECK_URL}" ]; then
+    echo "Waiting for WordPress site to be available at ${CHECK_URL}..."
+    if [ "$(curl -Lkf --retry-connrefused --retry 15 --retry-delay 2 -o /dev/null --stderr /dev/null "${CHECK_URL}")" ]; then
+      echo -e "\033[31mWordPress site at ${CHECK_URL} not available: check db credentials or the WordPress container health.\033[0m"
+      exit 1
+    fi
+  else
+    echo "WORDPRESS_URL and WP_URL not set, skipping web-server checks."
   fi
-
-    echo -e "\033[32mWordPress available at ${CHECK_URL}.\033[0m"
+  echo -e "\033[32mWordPress available at ${CHECK_URL}.\033[0m"
 else
-  echo "CODECEPT_SKIP_URL_CHECK env var set to 1, skipping web-server checks."
+  echo "CODECEPT_SKIP_URL_CHECK set to 1, skipping web-server checks."
 fi
 
 # Sleep a further delay if the CODECEPTION_WAIT env var is set.
