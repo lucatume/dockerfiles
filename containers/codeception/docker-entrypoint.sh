@@ -66,7 +66,7 @@ fi
 
 CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR:-/project}
 
-if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}" ]; then
+if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept" ]; then
   # If the project does have Codeception installed, then call the project codecept binary directly.
   echo -e "\033[32mUsing project Codeception binary.\033[0m"
   echo ''
