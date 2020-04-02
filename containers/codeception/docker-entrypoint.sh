@@ -79,7 +79,6 @@ if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin
   # If the project does have Codeception installed, then call the project codecept binary directly.
   echo -e "\033[32mUsing project Codeception binary.\033[0m"
   echo ''
-  alias codecept="${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept"
   CODECEPTION_BIN="${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept"
 else
   # Else fall-back and use the codecept binary provided from the original codeception container.
