@@ -11,6 +11,15 @@ SKIP_DB_CHECK=${CODECEPTION_SKIP_DB_CHECK:-0}
 SKIP_URL_CHECK=${CODECEPTION_SKIP_URL_CHECK:-0}
 SKIP_BIN_CHECK=${CODECEPTION_SKIP_BIN_CHECK:-0}
 
+# Disable the XDebug extension if XDEBUG_DISABLE=1.
+test "${XDEBUG_DISABLE:-0}" == 1 && {
+  # Play the pipe game to avoid dealing with temp file issues.
+  XDEBUG_CONFIGURATION_FILE="/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+  XDEBUG_CONFIGURATION=$(cat "${XDEBUG_CONFIGURATION_FILE}")
+  echo "${XDEBUG_CONFIGURATION}" | sed -e '/^zend_extension.*xdebug/s/^zend_extension/;zend_extension/g' > "${XDEBUG_CONFIGURATION_FILE}"
+  echo -e "\033[32mXDebug extension disabled.\033[0m";
+}
+
 if [[ "${UID}:${GID}" != "0:0" ]]; then
   echo -e "\033[32mFixing file ownership issues...\033[0m"
   # Use fixuid to remap UID and GID correctly in the /project folders.

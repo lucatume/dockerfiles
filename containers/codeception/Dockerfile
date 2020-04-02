@@ -28,7 +28,10 @@ RUN USER=docker && \
 
 # Set up the Docker entrypoint script.
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
+
+# Change the ownership of the XDebug configuration file to allow any user to modify it.
+RUN chmod a+rw /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 USER docker:docker
 WORKDIR /project
