@@ -11,6 +11,6 @@ function fix_uid(){
 		fi
 }
 
-test "${FIXUID:-1}" && fix_uid
+test "${FIXUID:-1}" != "0" && fix_uid
 
 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_HOME=/composer COMPOSER_CACHE=/composer/cache composer "$@"
