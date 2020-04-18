@@ -41,6 +41,10 @@ Included extensions are:
 
 The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").  
 
+## codeception-php-5.6
+
+The same as [the `codeception` container](#codeception), but runnin PHP 5.6.
+
 ### Usage
 
 Run [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") tests in the project:

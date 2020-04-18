@@ -6,16 +6,18 @@ PHPSTAN_WORDPRESS_VERSION = 0.6
 
 lint:
 	docker run --rm -v $$(pwd)/containers/codeception:/project replicated/dockerfilelint /project/Dockerfile
+	docker run --rm -v $$(pwd)/containers/codeception-php-5.6:/project replicated/dockerfilelint /project/Dockerfile
 	docker run --rm -v $$(pwd)/containers/composer:/project replicated/dockerfilelint /project/Dockerfile
 	docker run --rm -v $$(pwd)/containers/parallel-lint-56:/project replicated/dockerfilelint /project/Dockerfile
 	docker run --rm -v $$(pwd)/containers/wp-browser:/project replicated/dockerfilelint /project/Dockerfile
 	docker run --rm -v $$(pwd)/containers/wpstan:/project replicated/dockerfilelint /project/Dockerfile
 
-build: composer_containers codeception_container wpbrowser_container wpstan_container lint_container
+build: composer_containers codeception_container codeception_56_container wpbrowser_container wpstan_container lint_container
 
 push:
 	docker push lucatume/composer
 	docker push lucatume/codeception
+	docker push lucatume/codeception-php-5.6
 	docker push lucatume/wp-browser
 	docker push lucatume/wpstan
 	docker push lucatume/parallel-lint-56
@@ -38,6 +40,13 @@ codeception_container:
 		--tag lucatume/codeception:cc${CODECEPTION_VERSION} \
 		--tag lucatume/codeception \
 		containers/codeception
+
+codeception_56_container:
+	docker build \
+		--build-arg CODECEPTION_VERSION=${CODECEPTION_VERSION} \
+		--tag lucatume/codeception-php-5.6:cc${CODECEPTION_VERSION} \
+		--tag lucatume/codeception-php-5.6 \
+		containers/codeception-php-5.6
 
 wpbrowser_container:
 	docker build \

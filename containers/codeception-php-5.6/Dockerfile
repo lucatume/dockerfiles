@@ -1,17 +1,13 @@
-ARG CODECEPTION_VERSION
-
-FROM codeception/codeception:${CODECEPTION_VERSION}
+FROM chialab/php:5.6
 
 LABEL maintainer="Luca Tumedei <luca@theaveragedev.com>"
 
-# Install packages that might turn out to be useful.
-RUN apt-get update && \
- 	apt-get install -y --no-install-recommends mariadb-client && \
-    rm -rf /var/lib/apt/lists/*
+# Download script to install PHP extensions and dependencies
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
-# Install required PHP extensions.
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-RUN install-php-extensions pdo_mysql gd mysqli uopz
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
+
+RUN install-php-extensions xdebug
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
