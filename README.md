@@ -43,7 +43,7 @@ The container **does not** contain [wp-browser](https://github.com/lucatume/wp-b
 
 ## codeception-php-5.6
 
-The same as [the `codeception` container](#codeception), but runnin PHP 5.6.
+The same as [the `codeception` container](#codeception), but running PHP 5.6.
 
 ### Usage
 
