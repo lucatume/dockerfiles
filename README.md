@@ -43,7 +43,9 @@ The container **does not** contain [wp-browser](https://github.com/lucatume/wp-b
 
 ## codeception-php-5.6
 
-The same as [the `codeception` container](#codeception), but running PHP 5.6.
+This image purpose is to run Codeception tests on PHP 5.6.  
+It works the same as [the `codeception` container](#codeception), but on PHP version 5.6.
+The image **does not contain Codeception**, though: use [the `lucatume/composer:php5.6` container](#composer) to install PHP 5.6 compatible dependencies, then this container to run the code.
 
 ### Usage
 
