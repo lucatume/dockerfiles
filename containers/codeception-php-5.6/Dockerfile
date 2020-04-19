@@ -7,7 +7,8 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
 
-RUN install-php-extensions xdebug
+# Install extensions required by Codeception.
+RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
