@@ -7,11 +7,12 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
 
-# Install the mysql-client package.
+# Install the mysql-client package and make it world-executable.
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -qq -y \
       mysql-client \
-    && rm -rf matching cache rm /var/lib/apt/lists/*
+    && rm -rf matching cache rm /var/lib/apt/lists/* \
+    && chmod a+x /usr/bin/mysql
 
 # Install extensions required by Codeception.
 RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql
