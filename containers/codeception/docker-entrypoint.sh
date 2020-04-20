@@ -89,4 +89,28 @@ else
 		CODECEPTION_BIN=/repo/codecept
 fi
 
-exec "${CODECEPTION_BIN}" "$@"
+# If the first command is `bash`, then execute a bash command, not a Codeception one.
+if [ "$1" == 'bash' ]; then
+  echo -e "\e[32mCommand starts with 'bash': opening a bash shell.\e[0m"
+# If the first command is `bash`, then execute a bash command, not a Codeception one.
+if [ "$1" == 'bash' ]; then
+  echo "Command starts with 'bash': opening a bash shell."
+  # Add some useful aliases.
+  if [ -d "${HOME}" ]; then
+    printf "Adding the following aliases:\n  - c => %s\n  - cr => %s run" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}"
+    printf "alias c=%s\nalias cr=%s run" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}" >>${HOME}/.bashrc
+  fi
+  exec "$@"
+else
+  exec "${CODECEPTION_BIN}" "$@"
+fi
+  # Add some useful aliases.
+  if [ -d "${HOME}" ]; then
+    printf "Adding the following aliases:\n  - \e[32mc\e[0m => %s\n  - \e[32mcr\e[0m => %s run" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}"
+    printf "alias c='%s'\nalias cr='%s run'" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}" >>${HOME}/.bashrc
+    echo ""
+  fi
+  exec "$@"
+else
+  exec "${CODECEPTION_BIN}" "$@"
+fi
