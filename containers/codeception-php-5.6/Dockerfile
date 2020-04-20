@@ -7,6 +7,12 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
 
+# Install the mysql-client package.
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -qq -y \
+      mysql-client \
+    && rm -rf matching cache rm /var/lib/apt/lists/*
+
 # Install extensions required by Codeception.
 RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql
 
@@ -32,6 +38,10 @@ RUN chmod a+rw /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Configure php date.timezone.
 RUN echo "date.timezone = UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
+
+# Install Codeception from the codeception/codeception image.
+COPY --from=codeception/codeception /repo /repo
+RUN chmod -R a+x /repo
 
 USER docker:docker
 WORKDIR /project
