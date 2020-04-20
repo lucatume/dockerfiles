@@ -41,10 +41,14 @@ Included extensions are:
 
 The container **does not** contain [wp-browser](https://github.com/lucatume/wp-browser "lucatume/wp-browser · GitHub").  
 
+If the image is called with a `bash ...` command, then the image will not execute a Codeception sub-command and will open, instead, a shell in the container.
+
 ## codeception-php-5.6
 
 This image purpose is to run Codeception tests on PHP 5.6.  
 It works the same as [the `codeception` container](#codeception), but on PHP version 5.6.
+
+If the image is called with a `bash ...` command, then the image will not execute a Codeception sub-command and will open, instead, a shell in the container.
 
 ### Usage
 
