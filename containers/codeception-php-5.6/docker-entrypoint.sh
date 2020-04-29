@@ -91,11 +91,20 @@ fi
 
 # If the first command is `bash`, then execute a bash command, not a Codeception one.
 if [ "$1" == 'bash' ]; then
+  # If the first command is `bash`, then execute a bash command, not a Codeception one.
   echo -e "\e[32mCommand starts with 'bash': opening a bash shell.\e[0m"
-  # Add some useful aliases.
   if [ -d "${HOME}" ]; then
-    printf "Adding the following aliases:\n  - \e[32mc\e[0m => %s\n  - \e[32mcr\e[0m => %s run" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}"
-    printf "alias c='%s'\nalias cr='%s run'" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}" >>${HOME}/.bashrc
+    printf "Adding the following aliases:\n"
+    printf "  - \e[32mc\e[0m => %s\n" "${CODECEPTION_BIN}"
+    printf "  - \e[32mcr\e[0m => %s run\n" "${CODECEPTION_BIN}"
+    printf "  - \e[32mxon\e[0m => Activate XDebug extension\n"
+    printf "  - \e[32mxoff\e[0m => Deactivate Xdebug extension\n"
+    # Add some useful aliases.
+    (
+      printf "\nalias c='%s'\nalias cr='%s run'" "${CODECEPTION_BIN}" "${CODECEPTION_BIN}";
+      printf "\nfunction xoff(){\n\tsed -i '/^zend_extension/ s/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \n}";
+      printf "\nfunction xon(){\n\tsed -i '/^;zend_extension/ s/^;zend_extension/zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \n}\n"
+    ) >>${HOME}/.bashrc
     echo ""
   fi
   exec "$@"
