@@ -15,7 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && chmod a+x /usr/bin/mysql
 
 # Install extensions required by Codeception.
-RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql uopz
+RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
@@ -34,8 +34,8 @@ RUN USER=docker && \
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 
-# Change the ownership of the XDebug configuration file to allow any user to modify it.
-RUN chmod a+rw /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# Change the ownership of the PHP configuration file to ensure all users will be able to update configs.
+RUN chmod -R uga+rwx /usr/local/etc/php/conf.d
 
 # Configure php date.timezone.
 RUN echo "date.timezone = UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
