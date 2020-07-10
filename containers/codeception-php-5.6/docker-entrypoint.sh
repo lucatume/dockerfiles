@@ -109,6 +109,10 @@ if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
     echo ""
   fi
   exec "bash"
+elif [[ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" ]]; then
+  # Execute a command somewhere from the vendor/bin directory.
+  exec "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" "$@"
 else
+  # Execute a Codeception command.
   exec "${CODECEPTION_BIN}" "$@"
 fi
