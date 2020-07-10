@@ -17,7 +17,7 @@ test "${XDEBUG_DISABLE:-0}" == 1 && {
   # Play the pipe game to avoid dealing with temp file issues.
   XDEBUG_CONFIGURATION_FILE="/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
   XDEBUG_CONFIGURATION=$(cat "${XDEBUG_CONFIGURATION_FILE}")
-  echo "${XDEBUG_CONFIGURATION}" | sed -e '/^zend_extension.*xdebug/s/^zend_extension/;zend_extension/g' >"${XDEBUG_CONFIGURATION_FILE}"
+  echo "${XDEBUG_CONFIGURATION}" | sed -e '/^zend_extension.*xdebug/s/^zend_extension/;zend_extension/g' > "${XDEBUG_CONFIGURATION_FILE}"
   echo -e "\033[32m done\033[0m"
 }
 
