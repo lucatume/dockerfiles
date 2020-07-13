@@ -23,9 +23,9 @@ test "${XDEBUG_DISABLE:-0}" == 1 && {
 
 function fix_uid() {
   if [[ "${UID}:${GID}" != "0:0" ]]; then
-    echo -ne "\033[32mFixing file ownership issues...\033[0m"
+    echo -n "Fixing file ownership issues ..."
     # Use fixuid to remap UID and GID correctly in the /project folders.
-    eval "$(fixuid) > /dev/null 2>&1"
+    eval "$(fixuid -q)"
     echo -e "\033[32m done\033[0m"
   else
     echo "If you are encountering file ownership issues, run this container using the '--user ${UID}:${GID}' option."
