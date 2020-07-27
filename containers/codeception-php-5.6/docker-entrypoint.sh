@@ -74,12 +74,12 @@ if [ -n "${CODECEPTION_PROJECT_DIR}" ]; then
   echo -e "\033[32m done\033[0m"
 fi
 
-CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR:-/project}
+CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR%/:-/project}
 
 if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept" ]; then
   # If the project does have Codeception installed, then call the project codecept binary directly.
   echo -ne "Using the project Codeception binary ..."
-  CODECEPTION_BIN="${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept"
+  CODECEPTION_BIN="${CODECEPTION_PROJECT_DIR%/}/vendor/bin/codecept"
   echo -e "\033[32m done\033[0m"
 else
   # Else fall-back and use the codecept binary provided from the original codeception container.
@@ -97,7 +97,7 @@ if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
       printf "\nfunction xon(){\n\tsed -i '/^;zend_extension/ s/^;zend_extension/zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \n}\n"
       printf "\nexport PROMPT_DIRTRIM=2\n"
       printf "\nexport PS1='\w > '\n"
-    ) >>${HOME}/.bashrc
+    ) >>"${HOME}/.bashrc"
     echo -e "\033[32m done\033[0m"
     printf "Added the following aliases:\n"
     printf "  - \e[32mc\e[0m => %s%s\n" "${CODECEPTION_BIN}" " ${CODECEPTION_SHELL_CONFIG}"
