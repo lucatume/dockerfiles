@@ -36,6 +36,15 @@ RUN USER=docker && \
     printf "user: $USER\ngroup: $GROUP\npaths: [ '/composer' ]" > /etc/fixuid/config.yml && \
     chown -R ${USER}:${GROUP} /composer
 
+# Remove the PHP memory limit and verify it.
+RUN php -r "echo 'PHP memory_limit before memory_limit modification: ' . ini_get('memory_limit') . PHP_EOL;" && \
+    echo "PHP ini files before memory_limit modification:" && \
+    php --ini && \
+    echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini && \
+    echo "PHP ini files after memory_limit modification:" && \
+    php --ini && \
+    php -r "echo 'PHP memory_limit after memory_limit modification: ' . ini_get('memory_limit') . PHP_EOL;"
+
 # Set up the docker entrypoint script.
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
