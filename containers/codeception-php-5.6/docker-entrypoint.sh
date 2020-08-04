@@ -74,7 +74,10 @@ if [ -n "${CODECEPTION_PROJECT_DIR}" ]; then
   echo -e "\033[32m done\033[0m"
 fi
 
-CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR%/:-/project}
+# Default the Codeception project directory to `/project` if not specified.
+CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR:-/project}
+# Remove the trailing slash that might have been appended to the path.
+CODECEPTION_PROJECT_DIR=${CODECEPTION_PROJECT_DIR%/}
 
 if [ "0" == "${SKIP_BIN_CHECK}" ] && [ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/codecept" ]; then
   # If the project does have Codeception installed, then call the project codecept binary directly.
