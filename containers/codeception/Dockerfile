@@ -36,6 +36,9 @@ RUN chmod -R uga+rw /usr/local/etc/php/conf.d
 # Configure php date.timezone.
 RUN echo "date.timezone = UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
 
+# Create a `/cache` directory that is `a+rwx`.
+RUN mkdir /cache && chmod a+rwx /cache
+
 USER docker:docker
 WORKDIR /project
 
