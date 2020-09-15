@@ -1,8 +1,8 @@
 COMPOSER_VERSION = 1.9.3
 CODECEPTION_VERSION = 3.1.0
 WPBROWSER_VERSION = 2.2.36
-PHPSTAN_VERSION = 0.12
-PHPSTAN_WORDPRESS_VERSION = 0.6
+PHPSTAN_VERSION = 0.12.42
+PHPSTAN_WORDPRESS_VERSION = 0.6.3
 
 lint:
 	docker run --rm -v $$(pwd)/containers/codeception:/project replicated/dockerfilelint /project/Dockerfile
