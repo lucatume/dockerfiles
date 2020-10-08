@@ -9,9 +9,12 @@ RUN apt-get update && \
  	apt-get install -y --no-install-recommends mariadb-client && \
     rm -rf /var/lib/apt/lists/*
 
+# Remove the installed XDebug extension to allow installing the version compatible with uopz.
+RUN pecl uninstall xdebug
+
 # Install required PHP extensions.
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-RUN install-php-extensions pdo_mysql gd mysqli uopz
+RUN install-php-extensions pdo_mysql gd mysqli xdebug imagick
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
