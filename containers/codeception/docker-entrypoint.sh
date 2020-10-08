@@ -96,8 +96,8 @@ if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
     # Add some useful aliases.
     (
       printf "\nalias c='%s%s'\nalias cr='%s%s run'" "${CODECEPTION_BIN}" " ${CODECEPTION_SHELL_CONFIG}" "${CODECEPTION_BIN}" " ${CODECEPTION_SHELL_CONFIG}";
-      printf "\nfunction xoff(){\n\tsed -i '/^zend_extension/ s/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \n}";
-      printf "\nfunction xon(){\n\tsed -i '/^;zend_extension/ s/^;zend_extension/zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \n}\n"
+      printf "\nfunction xoff(){\n\tsed -i '/^zend_extension/ s/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; echo -e \"XDebug \e[31moff\e[0m\" \n}";
+      printf "\nfunction xon(){\n\tsed -i '/^;zend_extension/ s/^;zend_extension/zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; echo -e \"XDebug \e[32mon\e[0m\" \n}\n"
       printf "\nexport PROMPT_DIRTRIM=2\n"
       printf "\nexport PS1='\w > '\n"
     ) >>"${HOME}/.bashrc"
