@@ -14,7 +14,7 @@ RUN pecl uninstall xdebug
 
 # Install required PHP extensions.
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-RUN install-php-extensions pdo_mysql gd mysqli xdebug imagick
+RUN install-php-extensions pdo_mysql gd mysqli xdebug imagick uopz
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \

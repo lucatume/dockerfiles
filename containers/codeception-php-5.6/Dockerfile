@@ -15,7 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && chmod a+x /usr/bin/mysql
 
 # Install extensions required by Codeception.
-RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql
+RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql uopz
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
