@@ -18,7 +18,7 @@ RUN apt-get update && \
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
 # Install required PHP extensions.
-RUN install-php-extensions gd zip
+RUN install-php-extensions gd zip imagick
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
