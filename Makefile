@@ -1,7 +1,7 @@
 COMPOSER_VERSION = 1.9.3
 CODECEPTION_VERSION = 3.1.0
 WPBROWSER_VERSION = 2.2.36
-PHPSTAN_VERSION = 0.12.42
+PHPSTAN_VERSION = 0.12.53
 PHPSTAN_WORDPRESS_VERSION = 0.6.3
 
 lint:
@@ -62,6 +62,14 @@ wpstan_container:
 		--tag lucatume/wpstan:${PHPSTAN_VERSION} \
 		--tag lucatume/wpstan \
 		containers/wpstan
+
+wpstan_container_pro:
+	docker build \
+		--build-arg PHPSTAN_VERSION=${PHPSTAN_VERSION} \
+		--build-arg PHPSTAN_WORDPRESS_VERSION=${PHPSTAN_WORDPRESS_VERSION} \
+		--tag lucatume/wpstan-pr:${PHPSTAN_VERSION} \
+		--tag lucatume/wpstan-pro \
+		containers/wpstan-pro
 
 lint_container:
 	docker build --tag lucatume/parallel-lint-56 containers/parallel-lint-56
