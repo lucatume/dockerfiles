@@ -29,6 +29,9 @@ RUN USER=docker && \
     mkdir -p /etc/fixuid && \
     printf "user: $USER\ngroup: $GROUP\npaths: [ '/project' ]" > /etc/fixuid/config.yml
 
+# Make the docker user home accessible.
+RUN chmod -R a+rwx /home/docker
+
 # Set up the Docker entrypoint script.
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
