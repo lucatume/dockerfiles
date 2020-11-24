@@ -41,7 +41,10 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 RUN chmod -R uga+rwx /usr/local/etc/php/conf.d
 
 # Configure php date.timezone.
-RUN echo "date.timezone = UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
+RUN echo "date.timezone=UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
+
+# Ensure the uopz extension will respect and run exit and die calls.
+RUN echo "uopz.exit=1" >> /usr/local/etc/php/conf.d/docker-php-ext-uopz.ini
 
 # Install Codeception from the codeception/codeception image.
 COPY --from=codeception/codeception /repo /repo
