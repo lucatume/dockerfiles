@@ -42,6 +42,9 @@ RUN chmod -R uga+rw /usr/local/etc/php/conf.d
 # Configure php date.timezone.
 RUN echo "date.timezone = UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
 
+# Ensure the uopz extension will respect and run exit and die calls.
+RUN echo "uopz.exit = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-uopz.ini
+
 # Create a `/cache` directory that is `a+rwx`.
 RUN mkdir /cache && chmod a+rwx /cache
 
