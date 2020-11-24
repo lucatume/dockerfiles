@@ -14,13 +14,25 @@ lint:
 
 build: composer_containers codeception_container codeception_56_container wpbrowser_container wpstan_container lint_container
 
-push:
+push_composer:
 	docker push lucatume/composer
+
+push_codeception:
 	docker push lucatume/codeception
+
+push_codeception_56:
 	docker push lucatume/codeception-php-5.6
+
+push_wpbrowser:
 	docker push lucatume/wp-browser
+
+push_wpstan:
 	docker push lucatume/wpstan
+
+push_parallel_lint_56:
 	docker push lucatume/parallel-lint-56
+
+push: push_composer push_codeception push_codeception_56 push_wpbrowser push_wpstan push_parallel_lint_56
 
 composer_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4
 
