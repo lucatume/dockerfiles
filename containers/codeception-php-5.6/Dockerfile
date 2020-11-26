@@ -44,6 +44,9 @@ RUN chmod -R uga+rwx /usr/local/etc/php/conf.d
 RUN echo "date.timezone=UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
 
 # Ensure the uopz extension will respect and run exit and die calls.
+RUN echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+# Ensure the uopz extension will respect and run exit and die calls.
 RUN echo "uopz.exit=1" >> /usr/local/etc/php/conf.d/docker-php-ext-uopz.ini
 
 # Install Codeception from the codeception/codeception image.
