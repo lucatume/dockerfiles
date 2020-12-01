@@ -1,4 +1,4 @@
-COMPOSER_VERSION = 1.9.3
+COMPOSER_VERSION = 2.0.7
 CODECEPTION_VERSION = 3.1.0
 WPBROWSER_VERSION = 2.2.36
 PHPSTAN_VERSION = 0.12.53
@@ -34,17 +34,37 @@ push_parallel_lint_56:
 
 push: push_composer push_codeception push_codeception_56 push_wpbrowser push_wpstan push_parallel_lint_56
 
-composer_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4
+composer_v1_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4
+composer_v2_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4
 
-$(composer_php_versions): %:
+$(composer_v1_php_versions): %:
+	# Build Composer v1.
+	docker build \
+		--build-arg PHP_VERSION=$@ \
+		--build-arg COMPOSER_VERSION=1.10.17 \
+		--tag lucatume/composer:php$@-c${COMPOSER_VERSION} \
+		--tag lucatume/composer:php$@-composer-v1 \
+		--tag lucatume/composer:php$@ \
+		containers/composer
+
+$(composer_v2_php_versions): %:
+	# Build Composer v2, to avoid breaking back-compat, keep tagging the version 1 as default.
+    # lucatume/composer:php"${php_version}-${composer_version}" require $required_packages
 	docker build \
 		--build-arg PHP_VERSION=$@ \
 		--build-arg COMPOSER_VERSION=${COMPOSER_VERSION} \
 		--tag lucatume/composer:php$@-c${COMPOSER_VERSION} \
-		--tag lucatume/composer:php$@ \
+		--tag lucatume/composer:php$@-composer-v2 \
 		containers/composer
 
-composer_containers: $(composer_php_versions)
+composer_v1_containers: $(composer_v1_php_versions)
+.PHONY: composer_v1_containers
+
+composer_v2_containers: $(composer_v2_php_versions)
+.PHONY: composer_v2_containers
+
+composer_containers: composer_v1_containers composer_v2_containers
+.PHONY: composer_containers
 
 codeception_container:
 	docker build \
