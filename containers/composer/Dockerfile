@@ -23,8 +23,15 @@ RUN install-php-extensions gd zip imagick
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
     adduser --uid 1000 --ingroup docker --home /home/docker --shell /bin/sh --disabled-password --gecos "" docker && \
-    mkdir -p /composer/cache && \
-    COMPOSER_HOME=/composer COMPOSER_ALLOW_SUPERUSER=1 composer global require hirak/prestissimo
+    mkdir -p /composer/cache
+
+# Install hirak/prestissimo only on Composer v1.
+RUN export COMPOSER_MAJOR_VERSION="$(printf %.1s "${COMPOSER_VERSION}")"
+RUN if [ "${COMPOSER_MAJOR_VERSION}" = "1" ]; then \
+        export COMPOSER_HOME=/composer && \
+        export COMPOSER_ALLOW_SUPERUSER=1 && \
+        composer global require hirak/prestissimo; \
+    fi
 
 # Download and set up the fixuid script.
 RUN USER=docker && \
