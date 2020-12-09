@@ -38,7 +38,7 @@ push_parallel_lint_56:
 
 push: push_composer push_codeception push_codeception_56 push_wpbrowser push_wpstan push_parallel_lint_56
 
-composer_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4
+composer_php_versions = 5.6 7.0 7.1 7.2 7.3 7.4 8.0
 $(composer_php_versions): %:
 	# Build for Composer version 1, keep this as default.
 	docker build \

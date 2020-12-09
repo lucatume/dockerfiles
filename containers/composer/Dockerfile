@@ -17,8 +17,12 @@ RUN apt-get update && \
 # Neat helper to install the required PHP extensions.
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-# Install required PHP extensions.
-RUN install-php-extensions gd zip imagick
+RUN if [ "$(printf %.1s "${PHP_VERSION}")" != "8" ]; \
+    then \
+        install-php-extensions gd zip imagick; \
+    else \
+        install-php-extensions gd zip; \
+    fi
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
