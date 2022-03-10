@@ -10,6 +10,8 @@ CHECK_URL="${WORDPRESS_URL:-$WP_URL}"
 SKIP_DB_CHECK=${CODECEPTION_SKIP_DB_CHECK:-0}
 SKIP_URL_CHECK=${CODECEPTION_SKIP_URL_CHECK:-0}
 SKIP_BIN_CHECK=${CODECEPTION_SKIP_BIN_CHECK:-0}
+COLUMNS_BACKUP=$(tput cols)
+LINES_BACKUP=$(tput lines)
 
 # Disable the XDebug extension if XDEBUG_DISABLE=1.
 test "${XDEBUG_DISABLE:-0}" == 1 && {
@@ -109,6 +111,7 @@ if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
     printf "  - \e[32mxoff\e[0m => Deactivate Xdebug extension\n"
     echo ""
   fi
+  stty columns $COLUMNS_BACKUP rows $LINES_BACKUP
   exec "bash"
 elif [[ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" ]]; then
   # Execute a command somewhere from the vendor/bin directory.

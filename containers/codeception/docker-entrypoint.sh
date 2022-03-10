@@ -10,6 +10,8 @@ CHECK_URL="${WORDPRESS_URL:-$WP_URL}"
 SKIP_DB_CHECK=${CODECEPTION_SKIP_DB_CHECK:-0}
 SKIP_URL_CHECK=${CODECEPTION_SKIP_URL_CHECK:-0}
 SKIP_BIN_CHECK=${CODECEPTION_SKIP_BIN_CHECK:-0}
+COLUMNS_BACKUP=$(tput cols)
+LINES_BACKUP=$(tput lines)
 
 # Disable the XDebug extension if XDEBUG_DISABLE=1.
 test "${XDEBUG_DISABLE:-0}" == 1 && {
@@ -91,13 +93,16 @@ fi
 
 if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
   # If the first command is `bash` or `shell`, then execute a bash command, not a Codeception one.
-  echo -n "Setting up the shell ..."
+echo -n "Setting up the shell ..."
   if [ -d "${HOME}" ]; then
     # Add some useful aliases.
     (
       printf "\nalias c='%s%s'\nalias cr='%s%s run'" "${CODECEPTION_BIN}" " ${CODECEPTION_SHELL_CONFIG}" "${CODECEPTION_BIN}" " ${CODECEPTION_SHELL_CONFIG}";
       printf "\nfunction xoff(){\n\tsed -i '/^zend_extension/ s/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; echo -e \"XDebug \e[31moff\e[0m\"; php -v \n}";
       printf "\nfunction xon(){\n\tsed -i '/^;zend_extension/ s/^;zend_extension/zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; echo -e \"XDebug \e[32mon\e[0m\"; php -v \n}\n"
+      printf "\nexport PROMPT_DIRTRIM=2\n"
+      printf "\nexport COLUMNS=${COLUMNS_BACKUP}\n"
+      printf "\nexport LINES=${LINES_BACKUP}\n"
       printf "\nexport PROMPT_DIRTRIM=2\n"
       printf "\nexport PS1='\w > '\n"
     ) >>"${HOME}/.bashrc"
@@ -109,7 +114,8 @@ if [[ "$1" == 'bash' || "$1" == 'shell' ]]; then
     printf "  - \e[32mxoff\e[0m => Deactivate Xdebug extension\n"
     echo ""
   fi
-  exec "bash"
+  stty columns $COLUMNS_BACKUP rows $LINES_BACKUP
+  exec bash
 elif [[ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" ]]; then
   # Execute a command somewhere from the vendor/bin directory.
   exec "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" "$@"
