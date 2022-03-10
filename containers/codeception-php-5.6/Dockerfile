@@ -15,7 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && chmod a+x /usr/bin/mysql
 
 # Install extensions required by Codeception.
-RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql uopz
+RUN install-php-extensions xdebug bcmath zip imagick gd pdo pdo_mysql uopz pcntl
 
 # Create a `docker` user to run the container not as root.
 RUN addgroup --gid 1000 docker && \
@@ -43,8 +43,8 @@ RUN chmod -R uga+rwx /usr/local/etc/php/conf.d
 # Configure php date.timezone.
 RUN echo "date.timezone=UTC" >> /usr/local/etc/php/conf.d/docker-php-config.ini
 
-# Ensure the uopz extension will respect and run exit and die calls.
-RUN echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+# Set up XDebug.
+COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Ensure the uopz extension will respect and run exit and die calls.
 RUN echo "uopz.exit=1" >> /usr/local/etc/php/conf.d/docker-php-ext-uopz.ini
