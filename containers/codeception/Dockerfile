@@ -32,10 +32,6 @@ RUN USER=docker && \
 # Make the docker user home accessible.
 RUN chmod -R a+rwx /home/docker
 
-# Set up the Docker entrypoint script.
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
-
 # Change the ownership of the PHP configuration file to ensure all users will be able to update configs.
 RUN chmod -R uga+rw /usr/local/etc/php/conf.d
 
@@ -50,6 +46,10 @@ RUN echo "uopz.exit=1" >> /usr/local/etc/php/conf.d/docker-php-ext-uopz.ini
 
 # Create a `/cache` directory that is `a+rwx`.
 RUN mkdir /cache && chmod a+rwx /cache
+
+# Set up the Docker entrypoint script.
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 
 USER docker:docker
 WORKDIR /project

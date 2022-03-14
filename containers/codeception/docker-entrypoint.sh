@@ -10,8 +10,16 @@ CHECK_URL="${WORDPRESS_URL:-$WP_URL}"
 SKIP_DB_CHECK=${CODECEPTION_SKIP_DB_CHECK:-0}
 SKIP_URL_CHECK=${CODECEPTION_SKIP_URL_CHECK:-0}
 SKIP_BIN_CHECK=${CODECEPTION_SKIP_BIN_CHECK:-0}
-COLUMNS_BACKUP=$(tput cols)
-LINES_BACKUP=$(tput lines)
+if [ -v TERM ]; then
+  COLUMNS_BACKUP=$(tput cols)
+  LINES_BACKUP=$(tput lines)
+fi;
+
+set_cols_lines(){
+  if [ -v COLUMNS_BACKUP ]; then
+    stty columns $COLUMNS_BACKUP rows $LINES_BACKUP
+  fi
+}
 
 # Disable the XDebug extension if XDEBUG_DISABLE=1.
 test "${XDEBUG_DISABLE:-0}" == 1 && {
@@ -114,12 +122,14 @@ echo -n "Setting up the shell ..."
     printf "  - \e[32mxoff\e[0m => Deactivate Xdebug extension\n"
     echo ""
   fi
-  stty columns $COLUMNS_BACKUP rows $LINES_BACKUP
+  set_cols_lines
   exec bash
 elif [[ -f "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" ]]; then
+  set_cols_lines
   # Execute a command somewhere from the vendor/bin directory.
   exec "${CODECEPTION_PROJECT_DIR}/vendor/bin/$1" "$@"
 else
+  set_cols_lines
   # Execute a Codeception command.
   exec "${CODECEPTION_BIN}" "$@"
 fi
